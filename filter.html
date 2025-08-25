@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phone Finder</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f9; }
+    header { background: #0077cc; color: white; padding: 15px; text-align: center; position: sticky; top: 0; }
+    .filters { display: flex; justify-content: center; gap: 15px; margin: 15px 0; }
+    .filters button {
+      padding: 10px 20px; border: none; border-radius: 6px;
+      background: #0077cc; color: white; cursor: pointer; font-size: 14px;
+    }
+    .filters button:hover { background: #005fa3; }
+    .phones { display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap: 20px; padding: 20px; }
+    .phone-card {
+      background: white; border-radius: 12px; padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center;
+    }
+    .phone-card img { max-width: 150px; height: auto; border-radius: 8px; margin-bottom: 10px; }
+    .phone-card h3 { margin: 5px 0; font-size: 16px; color: #222; }
+    .phone-card p { margin: 3px 0; font-size: 14px; color: #555; }
+    .buy-links a {
+      text-decoration: none; color: white; background: #ff9900; padding: 6px 12px;
+      border-radius: 6px; margin: 5px; font-size: 13px; display: inline-block;
+    }
+    .buy-links a.flipkart { background: #2874f0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Phone Finder (Budget Filters)</h1>
+    <div class="filters">
+      <button onclick="filterPhones('under_10000')">Under ₹10,000</button>
+      <button onclick="filterPhones('under_20000')">Under ₹20,000</button>
+      <button onclick="filterPhones('under_30000')">Under ₹30,000</button>
+      <button onclick="filterPhones('under_40000')">Under ₹40,000</button>
+    </div>
+  </header>
+
+  <main class="phones" id="phonesContainer"></main>
+
+  <script id="phonesData" type="application/json">
+  {
+    "under_10000": [
+      {
+        "phone_name": "Redmi 13C 5G",
+        "brand": "Xiaomi",
+        "price": "₹9,999",
+        "image": "https://m.media-amazon.com/images/I/71d1ytcCntL._SX679_.jpg",
+        "specs": {
+          "display": "6.6-inch FHD+ LCD, 90Hz",
+          "processor": "MediaTek Dimensity 6100+",
+          "ram": "4GB",
+          "storage": "128GB",
+          "battery": "5000mAh, 18W charging",
+          "camera": "50MP + 2MP | 8MP Front",
+          "os": "Android 13"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3YZmRed",
+          "flipkart": "https://www.flipkart.com/redmi-13c-5g"
+        }
+      },
+      {
+        "phone_name": "iQOO Z7 Lite",
+        "brand": "iQOO",
+        "price": "₹9,499",
+        "image": "https://m.media-amazon.com/images/I/81t6Av5Dv2L._SX679_.jpg",
+        "specs": {
+          "display": "6.56-inch FHD+ AMOLED, 120Hz",
+          "processor": "Snapdragon 4 Gen 2",
+          "ram": "6GB",
+          "storage": "128GB",
+          "battery": "5000mAh, 44W fast charging",
+          "camera": "64MP OIS + 2MP | 16MP Front",
+          "os": "Android 14"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3QqZ7Lt",
+          "flipkart": "https://www.flipkart.com/iqoo-z7-lite"
+        }
+      }
+    ],
+    "under_20000": [
+      {
+        "phone_name": "Realme Narzo 60x 5G",
+        "brand": "Realme",
+        "price": "₹14,499",
+        "image": "https://m.media-amazon.com/images/I/71Aa1pS8xjL._SX679_.jpg",
+        "specs": {
+          "display": "6.6-inch AMOLED, 120Hz",
+          "processor": "Dimensity 7050",
+          "ram": "8GB",
+          "storage": "128GB",
+          "battery": "5000mAh, 33W charging",
+          "camera": "64MP OIS + 2MP | 16MP Front",
+          "os": "Android 14"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3QvNarzo60x",
+          "flipkart": "https://www.flipkart.com/realme-narzo-60x-5g"
+        }
+      },
+      {
+        "phone_name": "iQOO Neo 7",
+        "brand": "iQOO",
+        "price": "₹17,999",
+        "image": "https://m.media-amazon.com/images/I/61D8EVnzEJL._SX679_.jpg",
+        "specs": {
+          "display": "6.78-inch AMOLED, 120Hz",
+          "processor": "Dimensity 8200",
+          "ram": "8GB",
+          "storage": "128GB",
+          "battery": "5000mAh, 120W charging",
+          "camera": "64MP OIS + 2MP + 2MP | 16MP Front",
+          "os": "Android 13"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3Neo7Iqoo",
+          "flipkart": "https://www.flipkart.com/iqoo-neo-7"
+        }
+      }
+    ],
+    "under_30000": [
+      {
+        "phone_name": "OnePlus Nord CE 4 5G",
+        "brand": "OnePlus",
+        "price": "₹24,999",
+        "image": "https://m.media-amazon.com/images/I/61nxQ62qglL.SX679.jpg",
+        "specs": {
+          "display": "6.7-inch AMOLED, 120Hz",
+          "processor": "Snapdragon 7 Gen 3",
+          "ram": "8GB",
+          "storage": "128GB",
+          "battery": "5000mAh, 100W fast charging",
+          "camera": "50MP OIS + 8MP | 16MP Front",
+          "os": "Android 14"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3OnePlusCE4",
+          "flipkart": "https://www.flipkart.com/oneplus-nord-ce-4-5g"
+        }
+      },
+      {
+        "phone_name": "Samsung Galaxy A54 5G",
+        "brand": "Samsung",
+        "price": "₹28,999",
+        "image": "https://m.media-amazon.com/images/I/71SX0v+xCkL.SX679.jpg",
+        "specs": {
+          "display": "6.4-inch Super AMOLED, 120Hz",
+          "processor": "Exynos 1380",
+          "ram": "8GB",
+          "storage": "128GB",
+          "battery": "5000mAh, 25W charging",
+          "camera": "50MP OIS + 12MP + 5MP | 32MP Front",
+          "os": "Android 14"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3SamsungA54",
+          "flipkart": "https://www.flipkart.com/samsung-galaxy-a54-5g"
+        }
+      }
+    ],
+    "under_40000": [
+      {
+        "phone_name": "iQOO 12 5G",
+        "brand": "iQOO",
+        "price": "₹39,999",
+        "image": "https://m.media-amazon.com/images/I/71dEY4Neo6L.SX679.jpg",
+        "specs": {
+          "display": "6.78-inch AMOLED, 144Hz",
+          "processor": "Snapdragon 8 Gen 3",
+          "ram": "12GB",
+          "storage": "256GB",
+          "battery": "5000mAh, 120W charging",
+          "camera": "50MP OIS + 50MP + 64MP | 16MP Front",
+          "os": "Android 14"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3Iqoo12",
+          "flipkart": "https://www.flipkart.com/iqoo-12-5g"
+        }
+      },
+      {
+        "phone_name": "Google Pixel 7",
+        "brand": "Google",
+        "price": "₹37,999",
+        "image": "https://m.media-amazon.com/images/I/61P-sP0s+9L.SX679.jpg",
+        "specs": {
+          "display": "6.3-inch AMOLED, 90Hz",
+          "processor": "Google Tensor G2",
+          "ram": "8GB",
+          "storage": "128GB",
+          "battery": "4355mAh, 30W charging",
+          "camera": "50MP OIS + 12MP | 10.8MP Front",
+          "os": "Android 14"
+        },
+        "buy_links": {
+          "amazon": "https://amzn.to/3Pixel7Google",
+          "flipkart": "https://www.flipkart.com/google-pixel-7"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    const data = JSON.parse(document.getElementById("phonesData").textContent);
+    const container = document.getElementById("phonesContainer");
+
+    function filterPhones(category) {
+      container.innerHTML = "";
+      data[category].forEach(phone => {
+        const card = document.createElement("div");
+        card.className = "phone-card";
+        card.innerHTML = `
+          <img src="${phone.image}" alt="${phone.phone_name}">
+          <h3>${phone.phone_name}</h3>
+          <p><strong>Price:</strong> ${phone.price}</p>
+          <p><strong>Display:</strong> ${phone.specs.display}</p>
+          <p><strong>Processor:</strong> ${phone.specs.processor}</p>
+          <p><strong>RAM/Storage:</strong> ${phone.specs.ram} / ${phone.specs.storage}</p>
+          <p><strong>Battery:</strong> ${phone.specs.battery}</p>
+          <p><strong>Camera:</strong> ${phone.specs.camera}</p>
+          <div class="buy-links">
+            <a href="${phone.buy_links.amazon}" target="_blank">Amazon</a>
+            <a href="${phone.buy_links.flipkart}" class="flipkart" target="_blank">Flipkart</a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samsung Galaxy S24 Ultra - Product Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 40px;
+    }
+    .gallery {
+      display: flex;
+      gap: 10px;
+    }
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .thumbnails img {
+      width: 60px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .main-image img {
+      width: 350px;
+      border-radius: 10px;
+    }
+    .details {
+      max-width: 600px;
+    }
+    .details h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .desc {
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .rating {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .price {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    .current-price {
+      color: #b12704;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .mrp {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 10px;
+    }
+    .discount {
+      color: green;
+    }
+    .offers {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .offer-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      background: #f7f7f7;
+      width: 160px;
+      font-size: 14px;
+    }
+    .full-details {
+      padding: 20px;
+      background: #fff;
+      margin: 20px;
+      border-radius: 8px;
+      display: none;
+    }
+    .toggle-btn {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 20px;
+      background: #007185;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="gallery">
+      <div class="thumbnails">
+        <img src="images/s24u-1.jpg" alt="thumb1">
+        <img src="images/s24u-2.jpg" alt="thumb2">
+        <img src="images/s24u-3.jpg" alt="thumb3">
+      </div>
+      <div class="main-image">
+        <img src="images/s24u-main.jpg" alt="Samsung Galaxy S24 Ultra">
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>Samsung Galaxy S24 Ultra 5G</h1>
+      <p class="desc">Titanium Gray, 12GB RAM, 256GB Storage | Snapdragon 8 Gen 3 | 200MP Quad Camera</p>
+      <div class="rating">
+        ⭐⭐⭐⭐⭐ (4.7) | 18,000+ ratings
+      </div>
+      <div class="price">
+        <span class="current-price">₹1,29,999</span>
+        <span class="mrp">₹1,49,999</span>
+        <span class="discount">-13%</span>
+      </div>
+      <p>Inclusive of all taxes</p>
+      <p>EMI starts at ₹6,250. <a href="#">EMI options</a></p>
+
+      <div class="offers">
+        <div class="offer-card">
+          <strong>No Cost EMI</strong><br>
+          <small>Available on select cards</small>
+        </div>
+        <div class="offer-card">
+          <strong>Exchange Offer</strong><br>
+          <small>Up to ₹25,000 off on exchange</small>
+        </div>
+        <div class="offer-card">
+          <strong>Bank Offer</strong><br>
+          <small>Flat ₹5,000 Instant Discount</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="toggle-btn" onclick="toggleDetails()">View Full Specifications</button>
+
+  <div class="full-details" id="specs">
+    <h2>📦 General</h2>
+    <ul>
+      <li><strong>Launch Date:</strong> January 17, 2024</li>
+      <li><strong>Status:</strong> Available</li>
+      <li><strong>Price (India):</strong> ₹1,29,999 – ₹1,59,999</li>
+    </ul>
+
+    <h2>📱 Display</h2>
+    <ul>
+      <li><strong>Type:</strong> Dynamic AMOLED 2X, 120Hz, HDR10+</li>
+      <li><strong>Size:</strong> 6.8 inches, 1440 x 3120 pixels</li>
+      <li><strong>Protection:</strong> Gorilla Glass Armor</li>
+    </ul>
+
+    <h2>⚙ Performance</h2>
+    <ul>
+      <li><strong>Chipset:</strong> Snapdragon 8 Gen 3 (4nm)</li>
+      <li><strong>RAM:</strong> 12GB</li>
+      <li><strong>Storage:</strong> 256GB / 512GB / 1TB</li>
+      <li><strong>OS:</strong> Android 14, One UI 6.1</li>
+    </ul>
+
+    <h2>📸 Rear Camera</h2>
+    <ul>
+      <li><strong>Main:</strong> 200MP f/1.7 (OIS)</li>
+      <li><strong>Periscope Telephoto:</strong> 50MP (5x optical zoom)</li>
+      <li><strong>Telephoto 2:</strong> 10MP (3x zoom)</li>
+      <li><strong>Ultra-Wide:</strong> 12MP</li>
+      <li><strong>Video:</strong> 8K@30fps, 4K@60fps, HDR10+</li>
+    </ul>
+
+    <h2>🤳 Front Camera</h2>
+    <ul>
+      <li><strong>Resolution:</strong> 12MP f/2.2</li>
+      <li><strong>Video:</strong> 4K@60fps</li>
+    </ul>
+
+    <h2>🔋 Battery</h2>
+    <ul>
+      <li><strong>Capacity:</strong> 5000mAh</li>
+      <li><strong>Charging:</strong> 45W wired, 15W wireless</li>
+    </ul>
+
+    <h2>📶 Connectivity</h2>
+    <ul>
+      <li><strong>5G:</strong> Yes, all global bands</li>
+      <li><strong>Wi-Fi:</strong> Wi-Fi 7</li>
+      <li><strong>Bluetooth:</strong> v5.3</li>
+      <li><strong>USB:</strong> Type-C 3.2</li>
+      <li><strong>UWB:</strong> Supported</li>
+    </ul>
+
+    <h2>🔐 Security</h2>
+    <ul>
+      <li>Ultrasonic In-display Fingerprint</li>
+      <li>Face Unlock</li>
+    </ul>
+
+    <h2>🖊 S Pen</h2>
+    <ul>
+      <li>Integrated S Pen with Bluetooth</li>
+      <li>Air Gestures, Handwriting Recognition</li>
+    </ul>
+
+    <h2>📦 Build & Extras</h2>
+    <ul>
+      <li><strong>Frame:</strong> Titanium</li>
+      <li><strong>Waterproof:</strong> IP68</li>
+      <li><strong>OS Updates:</strong> 7 Years Android + Security</li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleDetails() {
+      const specs = document.getElementById("specs");
+      specs.style.display = specs.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>

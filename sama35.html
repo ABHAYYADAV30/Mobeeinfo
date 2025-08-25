@@ -1,0 +1,118 @@
+<!-- Save this as a35.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samsung Galaxy A35 5G - Product Page</title>
+  <style>
+    /* Use same CSS as earlier pages */
+    /* ... [Use the same <style> block here too] ... */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="gallery">
+      <div class="thumbnails">
+        <img src="images/a35-thumb1.png" alt="A35 thumb">
+        <img src="images/a35-thumb2.png" alt="A35 thumb">
+        <img src="images/a35-thumb3.png" alt="A35 thumb">
+        <img src="images/a35-thumb4.png" alt="A35 thumb">
+      </div>
+      <div class="main-image">
+        <img src="images/a35-main.png" alt="Samsung Galaxy A35">
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>Samsung Galaxy A35 5G</h1>
+      <p class="desc">Awesome Navy, 8GB RAM, 128GB Storage, Exynos 1380, 6.6" AMOLED Display</p>
+      <div class="rating">
+        ⭐⭐⭐⭐☆ (4.2) | 7,200 ratings
+      </div>
+      <div class="price">
+        <span class="current-price">₹27,499</span>
+        <span class="mrp">M.R.P: ₹30,999</span>
+        <span class="discount">-11%</span>
+      </div>
+      <p>Inclusive of all taxes</p>
+      <p>EMI starts at ₹1,299. <a href="#">EMI options</a></p>
+
+      <div class="offers">
+        <div class="offer-card"><strong>Bank Offer</strong><br><small>₹1,500 Instant Discount</small></div>
+        <div class="offer-card"><strong>No Cost EMI</strong><br><small>Up to 6 months</small></div>
+        <div class="offer-card"><strong>Exchange Offer</strong><br><small>Up to ₹7,000 off</small></div>
+      </div>
+
+      <button class="toggle-btn" onclick="toggleSpecs()">Show Full Details</button>
+
+      <div class="product-specs" id="specs">
+        <h2>📦 General</h2>
+        <ul>
+          <li><strong>Launch:</strong> March 2024</li>
+          <li><strong>Status:</strong> Available</li>
+          <li><strong>Price:</strong> ₹27,499 – ₹30,999</li>
+        </ul>
+
+        <h2>📱 Display</h2>
+        <ul>
+          <li>6.6" FHD+ AMOLED, 120Hz</li>
+          <li>Vision Booster, 1000 nits</li>
+          <li>Gorilla Glass Victus+</li>
+        </ul>
+
+        <h2>⚙ Performance</h2>
+        <ul>
+          <li>Exynos 1380</li>
+          <li>8GB RAM</li>
+          <li>128GB/256GB Storage (expandable)</li>
+          <li>Android 14, One UI 6.1</li>
+        </ul>
+
+        <h2>📸 Rear Camera</h2>
+        <ul>
+          <li>50MP (OIS) + 8MP Ultra-wide + 5MP Macro</li>
+        </ul>
+
+        <h2>🤳 Front Camera</h2>
+        <ul>
+          <li>13MP Selfie</li>
+        </ul>
+
+        <h2>🔋 Battery</h2>
+        <ul>
+          <li>5000mAh</li>
+          <li>25W Fast Charging</li>
+        </ul>
+
+        <h2>📶 Connectivity</h2>
+        <ul>
+          <li>5G, Wi-Fi 6, Bluetooth 5.3, NFC</li>
+        </ul>
+
+        <h2>🔐 Security</h2>
+        <ul>
+          <li>In-display fingerprint</li>
+          <li>Face unlock</li>
+        </ul>
+
+        <h2>💡 Extras</h2>
+        <ul>
+          <li>IP67 Water & Dust Resistant</li>
+          <li>Samsung Knox, 4 OS + 5 Years Security</li>
+          <li>Dolby Atmos, stereo speakers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSpecs() {
+      const specs = document.getElementById('specs');
+      const btn = document.querySelector('.toggle-btn');
+      specs.style.display = specs.style.display === 'block' ? 'none' : 'block';
+      btn.textContent = specs.style.display === 'block' ? 'Hide Full Details' : 'Show Full Details';
+    }
+  </script>
+</body>
+</html>

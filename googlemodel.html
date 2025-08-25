@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top 12 Google Phones</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0px;
+    }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 300px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+    .specs {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .stars {
+      color: orange;
+    }
+    .deal {
+      color: red;
+      font-weight: bold;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .mrp {
+      text-decoration: line-through;
+      font-size: 14px;
+      color: #555;
+    }
+    .prime {
+      color: #0073e6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="logo" onclick="window.location.href='index.html'">Mobeeinfo</div>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search for phones, brands and more" />
+      <button onclick="handleSearch()">Search</button>
+    </div>
+
+    <nav>
+      <a href="front.html"><button>Home</button></a>
+      <a href="compare.html"><button>Compare</button></a>
+       <a href="login.html"><button>Login</button></a>
+
+      <div class="dropdown">
+        <button onclick="toggleDropdown(event)">More ▼</button>
+        <div class="dropdown-content" id="dropdownMenu">
+          <button onclick="navigateTo('account.html')">My Account</button>
+         <a href="about.html"><button>About us</button></a>
+          <button onclick="navigateTo('support.html')"> Help and Support</button>
+          <button onclick="navigateTo('settings.html')">Settings</button>
+          <button onclick="navigateTo('logout.html')">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<h2>Top 12 Google Phones</h2>
+<div class="product-container">
+  <!-- Card Template -->
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-1.jpg" alt="Pixel 8 Pro">
+    <div class="title">Google Pixel 8 Pro (12GB RAM, 128GB)</div>
+    <div class="specs">6.7" LTPO OLED, Tensor G3, 50MP + 48MP, 5050mAh, Android 14</div>
+    <div class="stars">★★★★☆ (254)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹98,999 <span class="mrp">₹1,05,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-1.jpg" alt="Pixel 8">
+    <div class="title">Google Pixel 8 (8GB RAM, 128GB)</div>
+    <div class="specs">6.2" OLED, Tensor G3, 50MP Dual Camera, 4575mAh</div>
+    <div class="stars">★★★★☆ (176)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹75,999 <span class="mrp">₹82,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <div class="card">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.LRUW-YVUNUuEpu5DuaYkxAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Pixel 7 Pro">
+    <div class="title">Google Pixel 7 Pro (12GB RAM, 128GB)</div>
+    <div class="specs">6.7" LTPO OLED, Tensor G2, 50MP + 48MP, 5000mAh</div>
+    <div class="stars">★★★★☆ (421)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹84,999 <span class="mrp">₹89,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <!-- Add More -->
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-7.jpg" alt="Pixel 7">
+    <div class="title">Google Pixel 7 (8GB RAM, 128GB)</div>
+    <div class="specs">6.3" OLED, Tensor G2, 50MP Main, 4355mAh, Android 13</div>
+    <div class="stars">★★★★☆ (350)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹59,999 <span class="mrp">₹66,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-7a.jpg" alt="Pixel 7a">
+    <div class="title">Google Pixel 7a (8GB RAM, 128GB)</div>
+    <div class="specs">6.1" OLED, Tensor G2, 64MP, 4385mAh, 90Hz</div>
+    <div class="stars">★★★☆☆ (222)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹43,999 <span class="mrp">₹49,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-6-pro-5g-1.jpg" alt="Pixel 6 Pro">
+    <div class="title">Google Pixel 6 Pro (12GB RAM, 128GB)</div>
+    <div class="specs">6.71" AMOLED, Tensor, 50MP + 48MP, 5003mAh</div>
+    <div class="stars">★★★☆☆ (312)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹49,999 <span class="mrp">₹62,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-6.jpg" alt="Pixel 6">
+    <div class="title">Google Pixel 6 (8GB RAM, 128GB)</div>
+    <div class="specs">6.4" AMOLED, Tensor, 50MP Dual Cam, 4614mAh</div>
+    <div class="stars">★★★☆☆ (290)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹39,999 <span class="mrp">₹51,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-6a-1.jpg" alt="Pixel 6a">
+    <div class="title">Google Pixel 6a (6GB RAM, 128GB)</div>
+    <div class="specs">6.1" OLED, Tensor, 12.2MP + 12MP, 4410mAh</div>
+    <div class="stars">★★★☆☆ (178)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹31,999 <span class="mrp">₹43,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <div class="card">
+    <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-5-1.jpg" alt="Pixel 5">
+    <div class="title">Google Pixel 5 (8GB RAM, 128GB)</div>
+    <div class="specs">6.0" OLED, Snapdragon 765G, 12.2MP, 4080mAh</div>
+    <div class="stars">★★★☆☆ (151)</div>
+    <div class="deal">Limited time deal</div>
+    <div class="price">₹24,999 <span class="mrp">₹32,999</span></div>
+    <div class="prime">Prime | Service: Installation</div>
+  </div>
+
+  <!-- Add 2 more if needed -->
+</div>
+
+</body>
+</html>

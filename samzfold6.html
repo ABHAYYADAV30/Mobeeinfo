@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samsung Galaxy Z Fold 6 - Product Page</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #1a1a1a;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    }
+    .gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .thumbnails img {
+      width: 60px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .thumbnails img:hover {
+      border-color: #007bff;
+      transform: scale(1.05);
+    }
+    .main-image img {
+      width: 350px;
+      border-radius: 12px;
+    }
+    .details {
+      max-width: 600px;
+    }
+    .details h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #1c1c1c;
+    }
+    .details .desc {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .rating {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 22px;
+      margin: 15px 0;
+    }
+    .current-price {
+      color: #b12704;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .mrp {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 10px;
+    }
+    .discount {
+      color: green;
+    }
+    .offers {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .offer-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      background: #f7f7f7;
+      width: 180px;
+      font-size: 14px;
+    }
+    .product-specs {
+      display: none;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px solid #eee;
+    }
+    .product-specs h2 {
+      font-size: 20px;
+      color: #007bff;
+      border-bottom: 1px solid #ddd;
+      margin-top: 25px;
+    }
+    .product-specs ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+    .product-specs li {
+      padding: 6px 0;
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .toggle-btn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background-color: #0056b3;
+    }
+    @media (max-width: 768px) {
+      .gallery { flex-direction: column; align-items: center; }
+      .main-image img { width: 90%; }
+      .offer-card { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="gallery">
+      <div class="thumbnails">
+        <img src="images/zfold6-thumb1.png" alt="thumb">
+        <img src="images/zfold6-thumb2.png" alt="thumb">
+        <img src="images/zfold6-thumb3.png" alt="thumb">
+        <img src="images/zfold6-thumb4.png" alt="thumb">
+      </div>
+      <div class="main-image">
+        <img src="image/zfold6.webp" alt="Samsung Galaxy Z Fold 6">
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>Samsung Galaxy Z Fold 6 5G with Galaxy AI</h1>
+      <p class="desc">Silver Shadow, 12GB RAM, 512GB Storage, Snapdragon 8 Gen 3, 7.6" Dynamic AMOLED 2X Foldable Display</p>
+      <div class="rating">
+        ⭐⭐⭐⭐☆ (4.5) | 221 ratings
+      </div>
+      <div class="price">
+        <span class="current-price">₹1,24,999</span>
+        <span class="mrp">M.R.P: ₹1,79,999</span>
+        <span class="discount">-8%</span>
+      </div>
+      <p>Inclusive of all taxes</p>
+      <p>EMI starts at ₹7,349. <a href="#">EMI options</a></p>
+
+      <div class="offers">
+        <div class="offer-card">
+          <strong>No Cost EMI</strong><br>
+          <small>Upto ₹11,100 EMI interest savings</small>
+        </div>
+        <div class="offer-card">
+          <strong>Cashback</strong><br>
+          <small>Upto ₹5,000 cashback on select cards</small>
+        </div>
+        <div class="offer-card">
+          <strong>Exchange Offer</strong><br>
+          <small>Up to ₹12,000 off with old device</small>
+        </div>
+      </div>
+
+      <button class="toggle-btn" onclick="toggleSpecs()">Show Full Details</button>
+
+      <div class="product-specs" id="specs">
+        <h2>📦 General</h2>
+        <ul>
+          <li><strong>Launch:</strong> July 10, 2025</li>
+          <li><strong>Status:</strong> Available</li>
+          <li><strong>Price (India):</strong> ₹1,24,999 – ₹1,79,999</li>
+        </ul>
+
+        <h2>📱 Display</h2>
+        <ul>
+          <li><strong>Main Display:</strong> 7.6" QXGA+ AMOLED, 120Hz</li>
+          <li><strong>Cover Display:</strong> 6.3" HD+ AMOLED, 120Hz</li>
+          <li><strong>HDR:</strong> HDR10+, Peak Brightness ~2600 nits</li>
+          <li><strong>Protection:</strong> Gorilla Glass Victus 2 (Cover), UTG (Main)</li>
+        </ul>
+
+        <h2>⚙ Performance</h2>
+        <ul>
+          <li><strong>Processor:</strong> Snapdragon 8 Gen 3 for Galaxy</li>
+          <li><strong>RAM:</strong> 12GB LPDDR5X</li>
+          <li><strong>Storage:</strong> 256GB / 512GB / 1TB (UFS 4.0)</li>
+          <li><strong>OS:</strong> Android 14, One UI 6.1.1 (Fold Optimized)</li>
+        </ul>
+
+        <h2>📸 Rear Camera</h2>
+        <ul>
+          <li><strong>Main:</strong> 50MP, f/1.8, OIS</li>
+          <li><strong>Ultra-wide:</strong> 12MP, 123° FoV</li>
+          <li><strong>Telephoto:</strong> 10MP (3x optical), OIS</li>
+          <li><strong>Video:</strong> 4K@60fps, 1080p@240fps</li>
+        </ul>
+
+        <h2>🤳 Front Cameras</h2>
+        <ul>
+          <li><strong>Cover Screen:</strong> 10MP Selfie Camera</li>
+          <li><strong>Main Screen UDC:</strong> 4MP Under Display Camera</li>
+        </ul>
+
+        <h2>🔋 Battery</h2>
+        <ul>
+          <li><strong>Capacity:</strong> 4400mAh</li>
+          <li><strong>Fast Charging:</strong> 25W Wired</li>
+          <li><strong>Wireless:</strong> 15W, Reverse: 4.5W</li>
+        </ul>
+
+        <h2>📶 Connectivity</h2>
+        <ul>
+          <li><strong>5G:</strong> SA/NSA</li>
+          <li><strong>Wi-Fi:</strong> Wi-Fi 6E</li>
+          <li><strong>Bluetooth:</strong> v5.3</li>
+          <li><strong>USB:</strong> Type-C 3.2</li>
+          <li><strong>UWB:</strong> No</li>
+        </ul>
+
+        <h2>🔐 Security</h2>
+        <ul>
+          <li>Side-mounted fingerprint sensor</li>
+          <li>Face unlock</li>
+        </ul>
+
+        <h2>💡 Extras</h2>
+        <ul>
+          <li>Flex Mode, App Continuity</li>
+          <li>S Pen Fold Edition support (sold separately)</li>
+          <li>IP48 water resistance</li>
+          <li>Samsung Knox, 4 OS + 5 Security updates</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSpecs() {
+      const specs = document.getElementById('specs');
+      const btn = document.querySelector('.toggle-btn');
+      if (specs.style.display === 'block') {
+        specs.style.display = 'none';
+        btn.textContent = 'Show Full Details';
+      } else {
+        specs.style.display = 'block';
+        btn.textContent = 'Hide Full Details';
+      }
+    }
+  </script>
+</body>
+</html>
