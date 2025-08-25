@@ -1,0 +1,1 @@
+Welcome to MobeeInfo, a modern mobile comparison platform where technology meets simplicity. We bring you detailed information on the latest smartphones — including features, prices, performance, camera details, and gaming capabilities. Our goal is to help users easily compare phones side by side and choose the best device for their needs. 
