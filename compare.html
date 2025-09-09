@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone Comparison Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #5794e4;
+    }
+    h1 {
+      text-align: center;
+      color: #030303;
+    }
+    .selectors {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .phone-box {
+      padding: 10px;
+      min-width: 200px;
+      text-align: center;
+      border: 2px dashed #aaa;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #fff;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+    .comparison-table th, .comparison-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    .comparison-table th {
+      background: #333;
+      color: #fff;
+      font-size: 16px;
+    }
+    .comparison-table td {
+      background: #fff;
+      font-size: 14px;
+    }
+    .phone-img {
+      width: 120px;
+      border-radius: 10px;
+    }
+    /* Popup search */
+    .search-popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .search-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      max-height: 70%;
+      overflow-y: auto;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .search-result {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+    .search-result:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Phone Comparison Tool</h1>
+  <style>
+    body {
+      background-image: url("https://static.vecteezy.com/system/resources/previews/034/202/814/non_2x/abstract-futuristic-circuit-board-for-high-computer-technology-concept-digital-network-connection-and-global-communication-background-illustration-vector.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+  </style>
+
+  <!-- Selectors -->
+  <div class="selectors">
+    <div class="phone-box" onclick="openSearch(0)" id="phoneBox1">+ Select Phone 1</div>
+    <div class="phone-box" onclick="openSearch(1)" id="phoneBox2">+ Select Phone 2</div>
+    <div class="phone-box" onclick="openSearch(2)" id="phoneBox3">+ Select Phone 3</div>
+  </div>
+
+  <!-- Comparison Table -->
+  <table class="comparison-table" id="comparisonTable">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Phone 1</th>
+        <th>Phone 2</th>
+        <th>Phone 3</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Search Popup -->
+  <div class="search-popup" id="searchPopup">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search phone..." onkeyup="filterPhones()">
+      <div id="searchResults"></div>
+      <button onclick="closeSearch()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Latest phones database (released within ~1 year, major brands)
+    const phones = {
+      // Samsung
+      "Samsung Galaxy S25 Ultra": {
+      img: "https://tse4.mm.bing.net/th/id/OIP.SJx7s5sdyzwq9Fpdb4OVLAHaHa?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
+      display: "6.82\" QHD+ AMOLED, 120Hz",
+      resolution: "3088 x 1440",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "200MP + 50MP + 50MP + 10MP",
+      frontCamera: "12MP",
+      battery: "5500mAh, 65W Charging",
+      os: "Android 15 (OneUI 7)",
+      extra: "IP68, S-Pen, WiFi 7, UWB"
+      },
+      "iPhone 16 Pro Max": {
+      img: "https://thfvnext.bing.com/th/id/OIP.zZYsIIVdx_QkJ8MZsbRvAQHaHa?w=182&h=182&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.9\" LTPO OLED, 120Hz",
+      resolution: "3200 x 1444",
+      processor: "Apple A18 Pro",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "48MP + 12MP + 12MP",
+      frontCamera: "20MP",
+      battery: "4800mAh, 45W Charging",
+      os: "iOS 18",
+      extra: "Face ID, MagSafe, Satellite SOS"
+      },
+      "Xiaomi 15 Ultra": {
+      img: "https://tse3.mm.bing.net/th/id/OIP.NTMf8FO1KPIrVr0Ir2ZHKQHaHa?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
+      display: "6.8\" AMOLED, 144Hz",
+      resolution: "3200 x 1440",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 50MP + 50MP + 50MP",
+      frontCamera: "32MP",
+      battery: "5400mAh, 90W Charging",
+      os: "Android 15 (HyperOS)",
+      extra: "Leica Optics, IR Blaster, WiFi 7"
+      },
+      "Google Pixel 9 Pro": {
+      img: "https://thfvnext.bing.com/th/id/OIP.WhlYtG9qf8ozYxXkdDdk-AHaIl?w=158&h=183&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.7\" LTPO OLED, 120Hz",
+      resolution: "3120 x 1440",
+      processor: "Google Tensor G4",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "50MP + 48MP + 12MP",
+      frontCamera: "16MP",
+      battery: "5000mAh, 30W Charging",
+      os: "Android 15",
+      extra: "Titan M3 Security, AI Features"
+      },
+      "OnePlus 13 Pro": {
+      img: "https://thfvnext.bing.com/th/id/OIP.0PxvaVOkL5mZJWRxfG14SwAAAA?w=144&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.82\" AMOLED, 120Hz",
+      resolution: "3168 x 1440",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "50MP + 64MP + 48MP",
+      frontCamera: "32MP",
+      battery: "5400mAh, 100W Charging",
+      os: "Android 15 (OxygenOS)",
+      extra: "Alert Slider, Hasselblad Camera"
+      },
+      "Oppo Find X8 Pro": {
+      img: "https://thfvnext.bing.com/th/id/OIP.LPHoP30WWv1GmCIAfaOl4gHaHa?w=186&h=186&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.82\" AMOLED, 120Hz",
+      resolution: "3168 x 1440",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 50MP + 64MP",
+      frontCamera: "32MP",
+      battery: "5200mAh, 100W Charging",
+      os: "Android 15 (ColorOS)",
+      extra: "MariSilicon X, IP68"
+      },
+      "Vivo X200 Pro": {
+      img: "https://thfvnext.bing.com/th/id/OIP.P96KynpvtslrIBdt6mFEXwHaHa?w=183&h=184&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.78\" AMOLED, 120Hz",
+      resolution: "3200 x 1440",
+      processor: "Dimensity 9400",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 50MP + 50MP",
+      frontCamera: "32MP",
+      battery: "5100mAh, 80W Charging",
+      os: "Android 15 (OriginOS)",
+      extra: "Zeiss Optics, 8K Video"
+      },
+      "Sony Xperia 1 VI": {
+      img: "data:image/webp;base64,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",
+      display: "6.5\" 4K OLED, 120Hz",
+      resolution: "3840 x 1644",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB",
+      rearCamera: "48MP + 12MP + 12MP",
+      frontCamera: "12MP",
+      battery: "5000mAh, 30W Charging",
+      os: "Android 15",
+      extra: "Cinema Pro, Audio Jack"
+      },
+      "Realme GT 7 Pro": {
+      img: "https://thfvnext.bing.com/th/id/OIP.RGB-l1crFsg-bOFB-iaQPwHaHa?w=159&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.74\" AMOLED, 144Hz",
+      resolution: "2772 x 1240",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 8MP + 2MP",
+      frontCamera: "32MP",
+      battery: "5500mAh, 120W Charging",
+      os: "Android 15 (Realme UI)",
+      extra: "VC Cooling, Stereo Speakers"
+      },
+      "Motorola Edge 50 Ultra": {
+      img: "https://thfvnext.bing.com/th/id/OIP.bQccd8CwwlduwFhOtyBAkwHaJ1?w=123&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.7\" OLED, 144Hz",
+      resolution: "2712 x 1220",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 50MP + 64MP",
+      frontCamera: "32MP",
+      battery: "5000mAh, 125W Charging",
+      os: "Android 15",
+      extra: "Wireless Charging, IP68"
+      },
+      "Asus ROG Phone 8 Ultimate": {
+      img: "https://tse4.mm.bing.net/th/id/OIP.VKRs7_4rKduahKRkcQdD-wHaHa?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
+      display: "6.78\" AMOLED, 165Hz",
+      resolution: "2448 x 1080",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "512GB / 1TB",
+      rearCamera: "50MP + 13MP + 8MP",
+      frontCamera: "32MP",
+      battery: "6000mAh, 65W Charging",
+      os: "Android 15 (ROG UI)",
+      extra: "AirTriggers, RGB Lighting"
+      },
+      "Honor Magic6 Pro": {
+      img: "https://thfvnext.bing.com/th/id/OIP.hKsK-ADKzNl16fXS7O7WDAHaHa?w=170&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.8\" OLED, 120Hz",
+      resolution: "2800 x 1260",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 50MP + 180MP",
+      frontCamera: "50MP",
+      battery: "5600mAh, 80W Charging",
+      os: "Android 15 (MagicOS)",
+      extra: "3D Face Unlock, Satellite Call"
+      },
+      "Huawei P70 Pro": {
+      img: "https://thfvnext.bing.com/th/id/OIP.7hJLRlLONuY5XY3vmyikDAHaHa?w=155&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      display: "6.7\" OLED, 120Hz",
+      resolution: "2700 x 1220",
+      processor: "Kirin 9010",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 40MP + 13MP",
+      frontCamera: "13MP",
+      battery: "5000mAh, 88W Charging",
+      os: "HarmonyOS 4",
+      extra: "Satellite Messaging, NM Card"
+      },
+      "Samsung Galaxy Z Fold6": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold6.jpg",
+      display: "7.6\" Foldable AMOLED, 120Hz",
+      resolution: "2176 x 1812",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "50MP + 12MP + 10MP",
+      frontCamera: "16MP (under display)",
+      battery: "4700mAh, 45W Charging",
+      os: "Android 15 (OneUI Fold)",
+      extra: "Foldable, S-Pen Support"
+      },
+      "Samsung Galaxy Z Flip6": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip6.jpg",
+      display: "6.7\" Foldable AMOLED, 120Hz",
+      resolution: "2640 x 1080",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB",
+      rearCamera: "12MP + 12MP",
+      frontCamera: "10MP",
+      battery: "3700mAh, 25W Charging",
+      os: "Android 15 (OneUI Flip)",
+      extra: "Foldable, Flex Mode"
+      },
+      "Apple iPhone 16": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16.jpg",
+      display: "6.3\" OLED, 60Hz",
+      resolution: "2532 x 1170",
+      processor: "Apple A18",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "48MP + 12MP",
+      frontCamera: "12MP",
+      battery: "3500mAh, 20W Charging",
+      os: "iOS 18",
+      extra: "Face ID, MagSafe"
+      },
+      "Xiaomi Mix Fold 4": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mix-fold4.jpg",
+      display: "8.03\" Foldable AMOLED, 120Hz",
+      resolution: "2160 x 1916",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "512GB / 1TB",
+      rearCamera: "50MP + 12MP + 8MP",
+      frontCamera: "20MP",
+      battery: "5000mAh, 67W Charging",
+      os: "Android 15 (HyperOS)",
+      extra: "Foldable, Leica Optics"
+      },
+      "Tecno Phantom V Flip2": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/tecno-phantom-v-flip2.jpg",
+      display: "6.9\" Foldable AMOLED, 120Hz",
+      resolution: "2640 x 1080",
+      processor: "Dimensity 9200+",
+      storage: "256GB / 512GB",
+      rearCamera: "64MP + 13MP",
+      frontCamera: "32MP",
+      battery: "4000mAh, 45W Charging",
+      os: "Android 15 (HiOS)",
+      extra: "Foldable, Dual Display"
+      },
+      "Poco F6 Pro": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/poco-f6-pro.jpg",
+      display: "6.67\" AMOLED, 120Hz",
+      resolution: "3200 x 1440",
+      processor: "Snapdragon 8 Gen 2",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "64MP + 8MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5000mAh, 120W Charging",
+      os: "Android 15 (HyperOS)",
+      extra: "LiquidCool, IR Blaster"
+      },
+      "Redmi Note 14 Pro": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/redmi-note-14-pro.jpg",
+      display: "6.67\" AMOLED, 120Hz",
+      resolution: "2400 x 1080",
+      processor: "Snapdragon 7 Gen 3",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "200MP + 8MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5100mAh, 67W Charging",
+      os: "Android 15 (HyperOS)",
+      extra: "IR Blaster, NFC"
+      },
+      "Infinix Zero Ultra 2": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/infinix-zero-ultra2.jpg",
+      display: "6.8\" AMOLED, 120Hz",
+      resolution: "2460 x 1080",
+      processor: "Dimensity 9200+",
+      storage: "256GB / 512GB",
+      rearCamera: "200MP + 13MP + 2MP",
+      frontCamera: "32MP",
+      battery: "5000mAh, 180W Charging",
+      os: "Android 15 (XOS)",
+      extra: "Fast Charging, Stereo Speakers"
+      },
+      "Samsung Galaxy S25 Ultra": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-ultra.jpg",
+      display: "6.82\" QHD+ AMOLED, 120Hz",
+      resolution: "3088 x 1440",
+      processor: "Snapdragon 8 Gen 4",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "200MP + 50MP + 50MP + 10MP",
+      frontCamera: "12MP",
+      battery: "5500mAh, 65W Charging",
+      os: "Android 15 (OneUI 7)"
+      },
+      "Samsung Galaxy S24 Ultra": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra.jpg",
+      display: "6.8\" QHD+ AMOLED, 120Hz",
+      resolution: "3120 x 1440",
+      processor: "Snapdragon 8 Gen 3",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "200MP + 50MP + 12MP + 10MP",
+      frontCamera: "12MP",
+      battery: "5000mAh, 45W Charging",
+      os: "Android 14 (OneUI 6.1)"
+      },
+      "Samsung Galaxy S24+": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-plus.jpg",
+      display: "6.7\" QHD+ AMOLED, 120Hz",
+      resolution: "3120 x 1440",
+      processor: "Snapdragon 8 Gen 3",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 12MP + 10MP",
+      frontCamera: "12MP",
+      battery: "4900mAh, 45W Charging",
+      os: "Android 14"
+      },
+      // Apple
+      "iPhone 16 Pro Max": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg",
+      display: "6.9\" LTPO OLED, 120Hz",
+      resolution: "3200 x 1444",
+      processor: "Apple A18 Pro",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "48MP + 12MP + 12MP",
+      frontCamera: "20MP",
+      battery: "4800mAh, 45W Charging",
+      os: "iOS 18"
+      },
+      "iPhone 15 Pro Max": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg",
+      display: "6.7\" LTPO OLED, 120Hz",
+      resolution: "2796 x 1290",
+      processor: "Apple A17 Pro",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "48MP + 12MP + 12MP",
+      frontCamera: "12MP",
+      battery: "4441mAh, 20W Charging",
+      os: "iOS 17"
+      },
+      "iPhone 15": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg",
+      display: "6.1\" Super Retina XDR OLED",
+      resolution: "2556 x 1179",
+      processor: "Apple A16 Bionic",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "48MP + 12MP",
+      frontCamera: "12MP",
+      battery: "3349mAh, 20W Charging",
+      os: "iOS 17"
+      },
+      // Google
+      "Google Pixel 8 Pro": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel8-pro.jpg",
+      display: "6.7\" LTPO OLED, 120Hz",
+      resolution: "2992 x 1344",
+      processor: "Google Tensor G3",
+      storage: "128GB / 256GB / 512GB / 1TB",
+      rearCamera: "50MP + 48MP + 48MP",
+      frontCamera: "10.5MP",
+      battery: "5050mAh, 30W Charging",
+      os: "Android 14"
+      },
+      "Google Pixel 8": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel8.jpg",
+      display: "6.2\" OLED, 120Hz",
+      resolution: "2400 x 1080",
+      processor: "Google Tensor G3",
+      storage: "128GB / 256GB",
+      rearCamera: "50MP + 12MP",
+      frontCamera: "10.5MP",
+      battery: "4575mAh, 27W Charging",
+      os: "Android 14"
+      },
+      // Vivo
+      "Vivo X100 Pro": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg",
+      display: "6.78\" AMOLED, 120Hz",
+      resolution: "2800 x 1260",
+      processor: "Dimensity 9300",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "50MP + 50MP + 50MP",
+      frontCamera: "32MP",
+      battery: "5400mAh, 100W Charging",
+      os: "Android 14 (OriginOS 4)"
+      },
+      "Vivo V30 Pro": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v30-pro.jpg",
+      display: "6.78\" AMOLED, 120Hz",
+      resolution: "2800 x 1260",
+      processor: "Dimensity 8200",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 50MP + 50MP",
+      frontCamera: "50MP",
+      battery: "5000mAh, 80W Charging",
+      os: "Android 14 (Funtouch OS 14)"
+      },
+      "Vivo V30": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v30.jpg",
+      display: "6.78\" AMOLED, 120Hz",
+      resolution: "2800 x 1260",
+      processor: "Snapdragon 7 Gen 3",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "50MP + 50MP",
+      frontCamera: "50MP",
+      battery: "5000mAh, 80W Charging",
+      os: "Android 14"
+      },
+      // Motorola
+      "Motorola Edge 50 Ultra": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-ultra.jpg",
+      display: "6.7\" P-OLED, 144Hz",
+      resolution: "2712 x 1220",
+      processor: "Snapdragon 8s Gen 3",
+      storage: "512GB / 1TB",
+      rearCamera: "50MP + 64MP + 50MP",
+      frontCamera: "50MP",
+      battery: "4500mAh, 125W Charging",
+      os: "Android 14"
+      },
+      "Motorola Edge 50 Pro": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-50-pro.jpg",
+      display: "6.7\" P-OLED, 144Hz",
+      resolution: "2712 x 1220",
+      processor: "Snapdragon 7 Gen 3",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 10MP + 13MP",
+      frontCamera: "50MP",
+      battery: "4500mAh, 125W Charging",
+      os: "Android 14"
+      },
+      // Realme
+      "Realme GT 6": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/realme-gt6.jpg",
+      display: "6.78\" AMOLED, 120Hz",
+      resolution: "2780 x 1264",
+      processor: "Snapdragon 8s Gen 3",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 50MP + 8MP",
+      frontCamera: "32MP",
+      battery: "5500mAh, 120W Charging",
+      os: "Android 14"
+      },
+      "Realme 12 Pro+": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/realme-12-pro-plus.jpg",
+      display: "6.7\" AMOLED, 120Hz",
+      resolution: "2412 x 1080",
+      processor: "Snapdragon 7s Gen 2",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 64MP + 8MP",
+      frontCamera: "32MP",
+      battery: "5000mAh, 67W Charging",
+      os: "Android 14"
+      },
+      // OnePlus
+      "OnePlus 12": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg",
+      display: "6.82\" AMOLED, 120Hz",
+      resolution: "3168 x 1440",
+      processor: "Snapdragon 8 Gen 3",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "50MP + 64MP + 48MP",
+      frontCamera: "32MP",
+      battery: "5400mAh, 100W Charging",
+      os: "Android 14 (OxygenOS 14)"
+      },
+      "OnePlus 12R": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12r.jpg",
+      display: "6.78\" AMOLED, 120Hz",
+      resolution: "2780 x 1264",
+      processor: "Snapdragon 8 Gen 2",
+      storage: "128GB / 256GB / 512GB",
+      rearCamera: "50MP + 8MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5500mAh, 100W Charging",
+      os: "Android 14"
+      },
+      // 10 latest OnePlus models
+      "OnePlus Nord CE4 Lite": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce4-lite.jpg",
+      display: "6.67\" AMOLED, 120Hz",
+      resolution: "2400 x 1080",
+      processor: "Snapdragon 695 5G",
+      storage: "128GB / 256GB",
+      rearCamera: "50MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5110mAh, 80W Charging",
+      os: "Android 14 (OxygenOS 14)"
+      },
+      "OnePlus Nord CE4": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce4.jpg",
+      display: "6.7\" AMOLED, 120Hz",
+      resolution: "2412 x 1080",
+      processor: "Snapdragon 7 Gen 3",
+      storage: "128GB / 256GB",
+      rearCamera: "50MP + 8MP",
+      frontCamera: "16MP",
+      battery: "5500mAh, 100W Charging",
+      os: "Android 14 (OxygenOS 14)"
+      },
+      "OnePlus Ace 3V": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-ace-3v.jpg",
+      display: "6.74\" AMOLED, 120Hz",
+      resolution: "2772 x 1240",
+      processor: "Snapdragon 7+ Gen 3",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 8MP",
+      frontCamera: "16MP",
+      battery: "5500mAh, 100W Charging",
+      os: "Android 14 (ColorOS 14)"
+      },
+      "OnePlus Nord N30 SE": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-n30-se.jpg",
+      display: "6.72\" IPS LCD, 120Hz",
+      resolution: "2400 x 1080",
+      processor: "Dimensity 6020",
+      storage: "128GB",
+      rearCamera: "50MP + 2MP",
+      frontCamera: "8MP",
+      battery: "5000mAh, 33W Charging",
+      os: "Android 13 (OxygenOS 13.1)"
+      },
+      "OnePlus Open": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-open.jpg",
+      display: "7.82\" Flexi-fluid AMOLED, 120Hz",
+      resolution: "2440 x 2268",
+      processor: "Snapdragon 8 Gen 2",
+      storage: "512GB",
+      rearCamera: "48MP + 64MP + 48MP",
+      frontCamera: "20MP + 32MP",
+      battery: "4805mAh, 67W Charging",
+      os: "Android 13 (OxygenOS 13.2)"
+      },
+      "OnePlus Nord 3": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-3.jpg",
+      display: "6.74\" AMOLED, 120Hz",
+      resolution: "2772 x 1240",
+      processor: "Dimensity 9000",
+      storage: "128GB / 256GB",
+      rearCamera: "50MP + 8MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5000mAh, 80W Charging",
+      os: "Android 13 (OxygenOS 13)"
+      },
+      "OnePlus Nord CE 3 Lite": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce-3-lite.jpg",
+      display: "6.72\" IPS LCD, 120Hz",
+      resolution: "2400 x 1080",
+      processor: "Snapdragon 695 5G",
+      storage: "128GB / 256GB",
+      rearCamera: "108MP + 2MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5000mAh, 67W Charging",
+      os: "Android 13 (OxygenOS 13.1)"
+      },
+      "OnePlus Ace 2 Pro": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-ace-2-pro.jpg",
+      display: "6.74\" AMOLED, 120Hz",
+      resolution: "2772 x 1240",
+      processor: "Snapdragon 8 Gen 2",
+      storage: "256GB / 512GB / 1TB",
+      rearCamera: "50MP + 8MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5000mAh, 150W Charging",
+      os: "Android 13 (ColorOS 13)"
+      },
+      "OnePlus Nord N30 5G": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-n30-5g.jpg",
+      display: "6.72\" IPS LCD, 120Hz",
+      resolution: "2400 x 1080",
+      processor: "Snapdragon 695 5G",
+      storage: "128GB / 256GB",
+      rearCamera: "108MP + 2MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5000mAh, 50W Charging",
+      os: "Android 13 (OxygenOS 13.1)"
+      },
+      "OnePlus Ace 2": {
+      img: "https://fdn2.gsmarena.com/vv/bigpic/oneplus-ace2.jpg",
+      display: "6.74\" AMOLED, 120Hz",
+      resolution: "2772 x 1240",
+      processor: "Snapdragon 8+ Gen 1",
+      storage: "256GB / 512GB",
+      rearCamera: "50MP + 8MP + 2MP",
+      frontCamera: "16MP",
+      battery: "5000mAh, 100W Charging",
+      os: "Android 13 (ColorOS 13)"
+      }
+    };
+
+    let selectedPhones = [null, null, null]; // stores chosen phone names
+    let currentIndex = null;
+
+    const comparisonTable = document.getElementById("comparisonTable").querySelector("tbody");
+
+    function openSearch(index) {
+      currentIndex = index;
+      document.getElementById("searchPopup").style.display = "flex";
+      document.getElementById("searchInput").value = "";
+      filterPhones();
+    }
+
+    function closeSearch() {
+      document.getElementById("searchPopup").style.display = "none";
+    }
+
+    function filterPhones() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const results = document.getElementById("searchResults");
+      results.innerHTML = "";
+      Object.keys(phones).forEach(phone => {
+        if (phone.toLowerCase().includes(query)) {
+          const div = document.createElement("div");
+          div.textContent = phone;
+          div.className = "search-result";
+          div.onclick = () => selectPhone(phone);
+          results.appendChild(div);
+        }
+      });
+    }
+
+    function selectPhone(phone) {
+      selectedPhones[currentIndex] = phone;
+      document.getElementById("phoneBox" + (currentIndex+1)).textContent = phone;
+      updateTable();
+      closeSearch();
+    }
+
+    function updateTable() {
+      const features = ["img","display","resolution","processor","storage","rearCamera","frontCamera","battery","os"];
+      const featureNames = ["Image","Display","Resolution","Processor","Storage","Rear Camera","Front Camera","Battery","OS"];
+      comparisonTable.innerHTML = "";
+      features.forEach((feature,i)=>{
+        const row = document.createElement("tr");
+        const featureCell = document.createElement("td");
+        featureCell.textContent = featureNames[i];
+        row.appendChild(featureCell);
+        selectedPhones.forEach(phone=>{
+          const cell = document.createElement("td");
+          if (phone && phones[phone]) {
+            if (feature==="img") {
+              cell.innerHTML = `<img src="${phones[phone].img}" class="phone-img"><br>${phone}`;
+            } else {
+              cell.textContent = phones[phone][feature];
+            }
+          }
+          row.appendChild(cell);
+        });
+        comparisonTable.appendChild(row);
+      });
+    }
+  </script>
+</body>
+</html>

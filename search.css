@@ -1,0 +1,28 @@
+/* search.css */
+.search-container {
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+#search-input {
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#search-results {
+  margin-top: 20px;
+  text-align: left;
+  padding: 10px;
+}
+
+.phone-result {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #f9f9f9;
+}

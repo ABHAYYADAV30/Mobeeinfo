@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple E-commerce Homepage</title>
+<link rel="stylesheet" href="styles.css" />
+ <style>
+/* Dropdown styles */
+.dropdown {
+position: relative;
+ display: inline-block;
+ }
+  .dropdown-content {
+display: none;
+position: absolute;
+background-color: white;
+min-width: 160px;
+box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+z-index: 1000;
+right: 0;
+border-radius: 4px;
+}
+.dropdown-content button {
+ background: none;
+ border: none;
+ width: 100%;
+padding: 10px 15px;
+text-align: left;
+cursor: pointer;
+font-size: 14px;
+color: #333;
+}
+.dropdown-content button:hover {
+background-color: #f1f1f1;
+}
+.show {
+display: block;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo" onclick="window.location.href='index.html'">Mobeeinfo</div>
+
+<div class="search-container">
+<input type="text" id="searchInput" placeholder="Search for phones, brands and more" />
+<button onclick="handleSearch()">Search</button>
+</div>
+
+<nav>
+<button onclick="navigateTo('index.html')">Home</button>
+<button onclick="navigateTo('compare.html')">Compare</button>
+<button onclick="navigateTo('pricing.html')">Pricing</button>
+
+<div class="dropdown" id="moreDropdown">
+<button onclick="toggleDropdown()">More ▼</button>
+<div class="dropdown-content" id="dropdownMenu">
+<button onclick="navigateTo('account.html')">My Account</button>
+<button onclick="navigateTo('settings.html')">Settings</button>
+<button onclick="navigateTo('support.html')">Support</button>
+<button onclick="navigateTo('help.html')">Help</button>
+</div>
+</div>
+</nav>
+</header>
+
+<main>
+<h1>Welcome to Mobeeinfo</h1>
+<p>Find the best deals on your favorite mobile phones. Use the search to quickly find what you want.</p>
+</main>
+
+<script>
+function navigateTo(page) {
+alert(`This would navigate to ${page}`);
+// For real navigation, uncomment below:
+// window.location.href = page;
+}
+
+function handleSearch() {
+const query = document.getElementById('searchInput').value.trim();
+if (query) {
+alert(`Searching for "${query}"...`);
+} else {
+alert('Please enter a search term');
+}
+}
+
+function toggleDropdown() {
+document.getElementById('dropdownMenu').classList.toggle('show');
+}
+
+// Close dropdown if clicking outside of it
+window.onclick = function(event) {
+if (!event.target.matches('#moreDropdown > button')) {
+const dropdown = document.getElementById('dropdownMenu');
+if (dropdown.classList.contains('show')) {
+dropdown.classList.remove('show');
+  }
+ }
+}
+</script>
+</body>
+</html>

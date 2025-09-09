@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samsung Galaxy A25 5G - Product Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 40px;
+      background: #fff;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .thumbnails img {
+      width: 60px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .main-image img {
+      width: 350px;
+      border-radius: 10px;
+    }
+
+    .details {
+      max-width: 600px;
+    }
+
+    .details h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .details .desc {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .rating {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .price {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+
+    .current-price {
+      color: #b12704;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .mrp {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 10px;
+    }
+
+    .discount {
+      color: green;
+    }
+
+    .offers {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .offer-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      background: #f7f7f7;
+      width: 160px;
+      font-size: 14px;
+    }
+
+    a {
+      color: #007185;
+      text-decoration: none;
+    }
+
+    .product-details {
+      background: #fff;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    .product-details h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .product-details ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .show-more {
+      margin-top: 20px;
+      background: #007185;
+      color: #fff;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #fullSpecs {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="gallery">
+      <div class="thumbnails">
+        <img src="images/a25-thumb1.png" alt="thumb">
+        <img src="images/a25-thumb2.png" alt="thumb">
+        <img src="images/a25-thumb3.png" alt="thumb">
+        <img src="images/a25-thumb4.png" alt="thumb">
+      </div>
+      <div class="main-image">
+        <img src="images/a25-main.png" alt="Samsung Galaxy A25">
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>Samsung Galaxy A25 5G</h1>
+      <p class="desc">Blue, 8GB RAM, 128GB Storage | Exynos 1280 | 5000mAh Battery</p>
+      <div class="rating">
+        ⭐⭐⭐⭐☆ (4.3) | 1,200 ratings
+      </div>
+      <div class="price">
+        <span class="current-price">₹17,499</span>
+        <span class="mrp">M.R.P: ₹23,999</span>
+        <span class="discount">-27%</span>
+      </div>
+      <p>Inclusive of all taxes</p>
+      <p>EMI starts at ₹865. <a href="#">View Plans</a></p>
+
+      <div class="offers">
+        <div class="offer-card">
+          <strong>No Cost EMI</strong><br>
+          <small>Upto 9 months EMI available</small>
+        </div>
+        <div class="offer-card">
+          <strong>Bank Offer</strong><br>
+          <small>₹1,000 instant discount on SBI Credit Cards</small>
+        </div>
+        <div class="offer-card">
+          <strong>Exchange Offer</strong><br>
+          <small>Up to ₹15,000 off on exchange</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-details">
+    <h2>About this item</h2>
+    <ul>
+      <li>6.5" Super AMOLED FHD+ Display, 120Hz Refresh Rate</li>
+      <li>Exynos 1280 Octa-core Processor</li>
+      <li>Triple Rear Camera: 50MP (OIS) + 8MP + 2MP | 13MP Front</li>
+      <li>5000mAh Battery | 25W Fast Charging</li>
+      <li>One UI 6.0 based on Android 14</li>
+      <li>Up to 4 years OS updates & 5 years security updates</li>
+    </ul>
+
+    <button class="show-more" onclick="toggleSpecs()">Show Full Specifications</button>
+
+    <div id="fullSpecs">
+      <h2>📱 Display</h2>
+      <ul>
+        <li>Type: Super AMOLED, 120Hz</li>
+        <li>Size: 6.5 inches, FHD+ (1080 x 2340)</li>
+        <li>Brightness: 1000 nits (HBM)</li>
+      </ul>
+
+      <h2>⚙ Performance</h2>
+      <ul>
+        <li>Processor: Exynos 1280 (5nm)</li>
+        <li>RAM: 6GB / 8GB</li>
+        <li>Storage: 128GB / 256GB (Expandable)</li>
+        <li>OS: Android 14, One UI 6.0</li>
+      </ul>
+
+      <h2>📸 Cameras</h2>
+      <ul>
+        <li>Main: 50MP f/1.8 (OIS)</li>
+        <li>Ultra-Wide: 8MP f/2.2</li>
+        <li>Depth: 2MP f/2.4</li>
+        <li>Front: 13MP f/2.2</li>
+        <li>Video: 4K@30fps (rear/front)</li>
+      </ul>
+
+      <h2>🔋 Battery</h2>
+      <ul>
+        <li>Capacity: 5000mAh</li>
+        <li>Charging: 25W wired</li>
+      </ul>
+
+      <h2>📶 Connectivity</h2>
+      <ul>
+        <li>5G, 4G VoLTE, Wi-Fi 5, Bluetooth 5.3</li>
+        <li>USB Type-C 2.0, GPS, NFC</li>
+      </ul>
+
+      <h2>🔐 Security</h2>
+      <ul>
+        <li>Side-mounted fingerprint scanner</li>
+        <li>Face Unlock</li>
+      </ul>
+
+      <h2>🎧 Audio</h2>
+      <ul>
+        <li>3.5mm headphone jack</li>
+        <li>Single bottom speaker</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleSpecs() {
+      const fullSpecs = document.getElementById("fullSpecs");
+      const button = document.querySelector(".show-more");
+      if (fullSpecs.style.display === "none" || fullSpecs.style.display === "") {
+        fullSpecs.style.display = "block";
+        button.textContent = "Hide Full Specifications";
+      } else {
+        fullSpecs.style.display = "none";
+        button.textContent = "Show Full Specifications";
+      }
+    }
+  </script>
+</body>
+</html>

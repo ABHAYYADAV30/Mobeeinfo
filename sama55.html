@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samsung Galaxy A55 5G - Product Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 40px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 10px;
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .thumbnails img {
+      width: 60px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .main-image img {
+      width: 350px;
+      border-radius: 10px;
+    }
+
+    .details {
+      max-width: 600px;
+    }
+
+    .details h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .details .desc {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .rating {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .price {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+
+    .current-price {
+      color: #b12704;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .mrp {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 10px;
+    }
+
+    .discount {
+      color: green;
+    }
+
+    .offers {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .offer-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      background: #f7f7f7;
+      width: 160px;
+      font-size: 14px;
+    }
+
+    .full-details, .comparison-section {
+      margin: 30px 20px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.06);
+    }
+
+    .full-details h2, .comparison-section h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .toggle-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #007185;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #f3f3f3;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .main-image img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="gallery">
+      <div class="thumbnails">
+        <img src="images/a55-1.jpg" alt="thumb">
+        <img src="images/a55-2.jpg" alt="thumb">
+        <img src="images/a55-3.jpg" alt="thumb">
+      </div>
+      <div class="main-image">
+        <img src="images/a55-main.jpg" alt="Samsung Galaxy A55">
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>Samsung Galaxy A55 5G</h1>
+      <p class="desc">Awesome Ice Blue | 8GB RAM | 128GB Storage | Exynos 1480 | 120Hz AMOLED</p>
+      <div class="rating">⭐⭐⭐⭐☆ (4.4) | 8,930 ratings</div>
+      <div class="price">
+        <span class="current-price">₹37,999</span>
+        <span class="mrp">₹42,999</span>
+        <span class="discount">-12%</span>
+      </div>
+      <p>Inclusive of all taxes</p>
+      <p>EMI starts at ₹1,835. <a href="#">EMI options</a></p>
+
+      <div class="offers">
+        <div class="offer-card"><strong>No Cost EMI</strong><br><small>Available on select cards</small></div>
+        <div class="offer-card"><strong>Bank Offer</strong><br><small>₹2000 Instant Discount</small></div>
+        <div class="offer-card"><strong>Exchange Bonus</strong><br><small>Up to ₹3000 extra</small></div>
+      </div>
+
+      <button class="toggle-btn" onclick="toggleDetails()">Show Full Details</button>
+    </div>
+  </div>
+
+  <div class="full-details hidden" id="fullDetails">
+    <h2>Full Specifications - Galaxy A55</h2>
+    <ul>
+      <li><strong>Display:</strong> 6.6" FHD+ Super AMOLED, 120Hz, Gorilla Glass Victus+</li>
+      <li><strong>Processor:</strong> Exynos 1480 (4nm)</li>
+      <li><strong>RAM:</strong> 8GB | <strong>Storage:</strong> 128GB / 256GB</li>
+      <li><strong>Camera:</strong> 50MP (OIS) + 12MP Ultra-Wide + 5MP Macro | Front: 32MP</li>
+      <li><strong>Battery:</strong> 5000mAh, 25W Fast Charging</li>
+      <li><strong>OS:</strong> Android 14, One UI 6.1 | 4 years OS, 5 years Security Updates</li>
+      <li><strong>Build:</strong> Aluminum frame, Gorilla Glass front & back</li>
+      <li><strong>Others:</strong> IP67, Stereo Speakers, 5G, NFC, Knox Security</li>
+    </ul>
+  </div>
+
+  <div class="comparison-section">
+    <h2>Compare: Galaxy A55 vs Galaxy S23 FE</h2>
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>Galaxy A55</th>
+        <th>Galaxy S23 FE</th>
+      </tr>
+      <tr>
+        <td>Display</td>
+        <td>6.6" AMOLED, 120Hz</td>
+        <td>6.4" AMOLED, 120Hz, HDR10+</td>
+      </tr>
+      <tr>
+        <td>Processor</td>
+        <td>Exynos 1480</td>
+        <td>Exynos 2200 / Snapdragon 8 Gen 1</td>
+      </tr>
+      <tr>
+        <td>Camera</td>
+        <td>50MP + 12MP + 5MP | 32MP Front</td>
+        <td>50MP + 8MP + 12MP | 10MP Front</td>
+      </tr>
+      <tr>
+        <td>Battery</td>
+        <td>5000mAh, 25W</td>
+        <td>4500mAh, 25W</td>
+      </tr>
+      <tr>
+        <td>Build</td>
+        <td>Gorilla Glass Victus+, IP67</td>
+        <td>Gorilla Glass 5, IP68</td>
+      </tr>
+      <tr>
+        <td>OS Updates</td>
+        <td>4 Years OS / 5 Years Security</td>
+        <td>4 Years OS / 5 Years Security</td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function toggleDetails() {
+      const detailBox = document.getElementById("fullDetails");
+      detailBox.classList.toggle("hidden");
+      event.target.innerText = detailBox.classList.contains("hidden") ? "Show Full Details" : "Hide Full Details";
+    }
+  </script>
+
+</body>
+</html>

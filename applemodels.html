@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iPhone Models - Mobeeinfo</title>
+  <link rel="stylesheet" href="css/applemodels.css">
+  <script src="js/script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="main-header">
+    <div class="logo" onclick="window.location.href='index.html'">Mobeeinfo</div>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search for phones, brands and more" />
+      <button onclick="handleSearch()">Search</button>
+    </div>
+
+    <nav>
+     <a href="front.html"><button>Home</button></a>
+      <a href="compare.html"><button>Compare</button></a>
+       <a href="login.html"><button>Login</button></a>
+
+      <div class="dropdown">
+        <button onclick="toggleDropdown(event)">More ▼</button>
+        <div class="dropdown-content" id="dropdownMenu">
+          <button onclick="navigateTo('account.html')">My Account</button>
+         <a href="about.html"><button>About us</button></a>
+          <button onclick="navigateTo('support.html')"> Help and Support</button>
+          <button onclick="navigateTo('settings.html')">Settings</button>
+          <button onclick="navigateTo('logout.html')">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Top Apple iPhones</h1>
+    <div class="product-grid">
+      
+      <div class="card">
+        <img src="image/15pro.webp" alt="iPhone 15 Pro Max">
+        <h2>iPhone 15 Pro Max</h2>
+        <p>Latest Apple flagship with A17 Pro chip and Titanium body.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone15.jpg" alt="iPhone 15">
+        <h2>iPhone 15</h2>
+        <p>All-new design and Dynamic Island with 48MP camera.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/Apple-iPhone-14-Pro-Max.jpg" alt="iPhone 14 Pro Max">
+        <h2>iPhone 14 Pro Max</h2>
+        <p>Powerful A16 chip with ProMotion and Always-On display.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone14.avif" alt="iPhone 14">
+        <h2>iPhone 14</h2>
+        <p>Solid performance with A15 chip and improved cameras.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone 13 pro max.jpeg" alt="iPhone 13 Pro Max">
+        <h2>iPhone 13 Pro Max</h2>
+        <p>Super Retina XDR display and excellent battery life.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone 13.jpg" alt="iPhone 13">
+        <h2>iPhone 13</h2>
+        <p>Sleek design, cinematic mode and A15 Bionic chip.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone 12 pro max.jpeg" alt="iPhone 12 Pro Max">
+        <h2>iPhone 12 Pro Max</h2>
+        <p>5G ready phone with Pro camera system and LiDAR.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone 12.webp" alt="iPhone 12">
+        <h2>iPhone 12</h2>
+        <p>OLED display and dual camera setup in sleek body.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone11promax.webp" alt="iPhone 11 Pro">
+        <h2>iPhone 11 Pro</h2>
+        <p>Triple camera system with Night mode and A13 chip.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/iphone11.webp" alt="iPhone 11">
+        <h2>iPhone 11</h2>
+        <p>Affordable performance with dual cameras and A13 chip.</p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

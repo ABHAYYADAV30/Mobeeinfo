@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MobeeInfo - Samsung Phones</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .card h2 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .price {
+      color: #B12704;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .deal {
+      background-color: #CC0C39;
+      color: white;
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 12px;
+      margin: 5px 0;
+      border-radius: 4px;
+    }
+
+    .specs {
+      font-size: 13px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .prime {
+      width: 50px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="logo" onclick="window.location.href='index.html'">Mobeeinfo</div>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search for phones, brands and more" />
+      <button onclick="handleSearch()">Search</button>
+    </div>
+
+    <nav>
+      <a href="front.html"><button>Home</button></a>
+      <a href="compare.html"><button>Compare</button></a>
+       <a href="login.html"><button>Login</button></a>
+
+      <div class="dropdown">
+        <button onclick="toggleDropdown(event)">More ▼</button>
+        <div class="dropdown-content" id="dropdownMenu">
+          <button onclick="navigateTo('account.html')">My Account</button>
+         <a href="about.html"><button>About us</button></a>
+          <button onclick="navigateTo('support.html')"> Help and Support</button>
+          <button onclick="navigateTo('settings.html')">Settings</button>
+          <button onclick="navigateTo('logout.html')">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <h1>Samsung Phones</h1>
+  <div class="grid">
+
+    <!-- S25 Ultra -->
+    <div class="card">
+      <a href="samss25ult.html" target="_blank">
+      <img src="image/samsungs251.webp" alt="S25 Ultra"></a>
+      <h2>Samsung Galaxy S25 Ultra 12GB RAM 512GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹1,29,999</div>
+      <div class="specs">Snapdragon 8 Gen 4 | 200MP Quad Camera | 5000mAh | 6.8" AMOLED</div>
+      
+    </div>
+
+    <!-- S24 Ultra -->
+    <div class="card">
+      <a href="samss24ult.html" target="_blank">
+      <img src="image/samsungs24ultra.webp" alt="S24 Ultra"></a>
+      <h2>Samsung Galaxy S24 Ultra 12GB 256GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹1,09,999</div>
+      <div class="specs">Snapdragon 8 Gen 3 | 200MP Camera | 6.8" QHD+ | 5000mAh</div>
+      
+    </div>
+
+    <!-- A54 -->
+    <div class="card">
+      <a href="sama54.html" target="_blank">
+      <img src="image/a54.webp" alt="A54"></a>
+      <h2>Samsung Galaxy A54 5G 8GB 128GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹33,499</div>
+      <div class="specs">Exynos 1380 | 50MP Triple Cam | 120Hz AMOLED | 5000mAh</div>
+      
+    </div>
+
+    <!-- A35 -->
+    <div class="card">
+      <a href="sama35.html" target="_blank">
+      <img src="image/a35.webp" alt="A35"></a>
+      <h2>Samsung Galaxy A35 5G 8GB 128GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹27,999</div>
+      <div class="specs">Exynos 1380 | 50MP | 6.6" Super AMOLED | 5000mAh</div>
+      
+    </div>
+
+    <!-- A15 -->
+    <div class="card">
+      <a href="sama15.html" target="_blank">
+      <img src="image/a15.webp" alt="A15"></a>    
+      <h2>Samsung Galaxy A15 5G 6GB 128GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹14,999</div>
+      <div class="specs">Dimensity 6100+ | 50MP | 6.5" AMOLED | 5000mAh</div>
+     
+    </div>
+
+    <!-- A55 -->
+    <div class="card">
+      <a href="sama55.html" target="_blank">
+      <img src="image/a55.webp" alt="A55"></a>
+      <h2>Samsung Galaxy A55 5G 8GB 256GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹39,999</div>
+      <div class="specs">Exynos 1480 | 50MP | 6.6" AMOLED | 5000mAh</div>
+      
+    </div>
+
+    <!-- A25 -->
+    <div class="card">
+       <a href="sama25.html" target="_blank">
+      <img src="image/a25.webp" alt="A25"></a>
+      <h2>Samsung Galaxy A25 5G 8GB 128GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹19,499</div>
+      <div class="specs">Exynos 1280 | 50MP OIS | 6.5" Super AMOLED</div>
+      
+    </div>
+
+    <!-- S25 -->
+    <div class="card">
+      <a href="samas25.html" target="_blank">
+      <img src="image/s25.webp" alt="S25"></a>
+      <h2>Samsung Galaxy S25 8GB 128GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹89,999</div>
+      <div class="specs">Snapdragon 8 Gen 4 | 50MP + 12MP | 6.1" AMOLED</div>
+      
+    </div>
+
+    <!-- S23 FE -->
+    <div class="card">
+        <a href="s23fe.html" target="_blank">
+      <img src="image/s23fe.webp" alt="S23 FE"></a>
+      <h2>Samsung Galaxy S23 FE 8GB 128GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹42,999</div>
+      <div class="specs">Exynos 2200 | 50MP | 6.4" AMOLED | 4500mAh</div>
+      
+    </div>
+
+    <!-- Z Fold 6 -->
+    <div class="card">
+       <a href="samzfold6.html" target="_blank">
+      <img src="image/zfold6.webp" alt="Z Fold 6"></a>
+      <h2>Samsung Galaxy Z Fold 6 12GB 512GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹1,59,999</div>
+      <div class="specs">Snapdragon 8 Gen 3 | Foldable AMOLED | 4400mAh</div>
+     
+    </div>
+
+    <!-- Z Flip 6 -->
+    <div class="card">
+      <a href="samzflip6.html" target="_blank">
+      <img src="image/zflip6.webp" alt="Z Flip 6"></a>
+      <h2>Samsung Galaxy Z Flip 6 8GB 256GB</h2>
+      <div class="deal">Limited time deal</div>
+      <div class="price">₹99,999</div>
+      <div class="specs">Snapdragon 8 Gen 3 | Flip AMOLED | 3700mAh</div>
+    </div>
+
+  </div>
+</body>
+</html>

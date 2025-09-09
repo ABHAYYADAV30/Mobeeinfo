@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vivo Models - Mobeeinfo</title>
+  <link rel="stylesheet" href="css/vivomodels.css">
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+   <header id="main-header">
+    <div class="logo" onclick="window.location.href='index.html'">Mobeeinfo</div>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search for phones, brands and more" />
+      <button onclick="handleSearch()">Search</button>
+    </div>
+
+    <nav>
+      <a href="front.html"><button>Home</button></a>
+      <a href="compare.html"><button>Compare</button></a>
+      <a href="login.html"><button>Login</button></a>
+
+      <div class="dropdown">
+        <button onclick="toggleDropdown(event)">More ▼</button>
+        <div class="dropdown-content" id="dropdownMenu">
+          <button onclick="navigateTo('account.html')">My Account</button>
+         <a href="about.html"><button>About us</button></a>
+          <button onclick="navigateTo('support.html')"> Help and Support</button>
+          <button onclick="navigateTo('settings.html')">Settings</button>
+          <button onclick="navigateTo('logout.html')">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Top Vivo phones</h1>
+    <div class="product-grid">
+      
+      <div class="card">
+        <img src="image/v40 pro.jpg" alt="iPhone 15 Pro Max">
+        <h2>Vivo V50</h2>
+        
+        <p>Latest Apple flagship with A17 Pro chip and Titanium body.</p>
+      </div>
+
+      <div class="card">
+        <a href="vivov50.html">
+          <img src="image/vivo v50.png" alt="vivo v50">
+        </a>
+        <h2>Vivo V50</h2>
+        <p>All-new design and Dynamic Island with 48MP camera.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vivov50.jpg" alt="Vivo V50">
+        <h2>Vivo V50</h2>
+        <p>Powerful A16 chip with ProMotion and Always-On display.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/x200fe.jpg" alt="vivo x200fe">
+        <h2>Vivo X200FE</h2>
+        <p>Solid performance with A15 chip and improved cameras.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vivox200pro.jpg" alt="Vivo X200 Pro">
+        <h2>Vivo X200 pro</h2>
+        <p>Super Retina XDR display and excellent battery life.</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vivox90.jpg" alt="iPhone 13">
+        <h2>Vivo X90</h2>
+        <p>Sleek design, cinematic mode and A15 Bionic chip.</p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

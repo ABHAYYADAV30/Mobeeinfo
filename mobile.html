@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phone Listings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .phone-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .phone-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .details {
+      padding: 15px;
+    }
+
+    .details h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+
+    .details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .details li {
+      margin-bottom: 5px;
+    }
+
+    .details li span {
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mobiles</h1>
+
+  <div class="container">
+    
+    <!-- 1 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/71L6UO1bHAL._SL1500_.jpg" alt="Samsung Galaxy M14">
+      <div class="details">
+        <h2>Samsung Galaxy M14 5G</h2>
+        <ul>
+          <li><span>Brand:</span> Samsung</li>
+          <li><span>OS:</span> Android 13</li>
+          <li><span>RAM:</span> 6 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Exynos 1330</li>
+          <li><span>Screen:</span> 6.6"</li>
+          <li><span>Battery:</span> 6000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/71xb2xkN5qL._SL1500_.jpg" alt="iPhone 15 Pro">
+      <div class="details">
+        <h2>Apple iPhone 15 Pro</h2>
+        <ul>
+          <li><span>Brand:</span> Apple</li>
+          <li><span>OS:</span> iOS 17</li>
+          <li><span>RAM:</span> 8 GB</li>
+          <li><span>Storage:</span> 256 GB</li>
+          <li><span>CPU:</span> A17 Pro</li>
+          <li><span>Screen:</span> 6.1"</li>
+          <li><span>Battery:</span> 3274 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/81cHpJNr07L._SL1500_.jpg" alt="OnePlus 12R">
+      <div class="details">
+        <h2>OnePlus 12R</h2>
+        <ul>
+          <li><span>Brand:</span> OnePlus</li>
+          <li><span>OS:</span> OxygenOS (Android 14)</li>
+          <li><span>RAM:</span> 8 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Snapdragon 8 Gen 1</li>
+          <li><span>Screen:</span> 6.78"</li>
+          <li><span>Battery:</span> 5000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/71h6PpGaz9L._SL1500_.jpg" alt="Redmi Note 13">
+      <div class="details">
+        <h2>Redmi Note 13</h2>
+        <ul>
+          <li><span>Brand:</span> Xiaomi</li>
+          <li><span>OS:</span> MIUI 14 (Android 13)</li>
+          <li><span>RAM:</span> 6 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Snapdragon 685</li>
+          <li><span>Screen:</span> 6.6"</li>
+          <li><span>Battery:</span> 5000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/41F+m5f8aTL._SL1000_.jpg" alt="Realme Narzo 60X">
+      <div class="details">
+        <h2>Realme Narzo 60X 5G</h2>
+        <ul>
+          <li><span>Brand:</span> Realme</li>
+          <li><span>OS:</span> Android 13</li>
+          <li><span>RAM:</span> 6 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Dimensity 6100+</li>
+          <li><span>Screen:</span> 6.72"</li>
+          <li><span>Battery:</span> 5000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/61amb0CfMGL._SL1500_.jpg" alt="iQOO Z9 5G">
+      <div class="details">
+        <h2>iQOO Z9 5G</h2>
+        <ul>
+          <li><span>Brand:</span> iQOO</li>
+          <li><span>OS:</span> Funtouch OS 14</li>
+          <li><span>RAM:</span> 8 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Dimensity 7200</li>
+          <li><span>Screen:</span> 6.38"</li>
+          <li><span>Battery:</span> 5000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/71zlbYcZV1L._SL1500_.jpg" alt="Motorola G73">
+      <div class="details">
+        <h2>Motorola G73 5G</h2>
+        <ul>
+          <li><span>Brand:</span> Motorola</li>
+          <li><span>OS:</span> Android 13</li>
+          <li><span>RAM:</span> 8 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Dimensity 930</li>
+          <li><span>Screen:</span> 6.5"</li>
+          <li><span>Battery:</span> 5000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/81ZV2ZrKXQL._SL1500_.jpg" alt="Google Pixel 7a">
+      <div class="details">
+        <h2>Google Pixel 7a</h2>
+        <ul>
+          <li><span>Brand:</span> Google</li>
+          <li><span>OS:</span> Android 14</li>
+          <li><span>RAM:</span> 8 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Tensor G2</li>
+          <li><span>Screen:</span> 6.1"</li>
+          <li><span>Battery:</span> 4385 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/81fcDZ8TqDL._SL1500_.jpg" alt="Infinix Zero 5G">
+      <div class="details">
+        <h2>Infinix Zero 5G</h2>
+        <ul>
+          <li><span>Brand:</span> Infinix</li>
+          <li><span>OS:</span> Android 12</li>
+          <li><span>RAM:</span> 8 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Dimensity 920</li>
+          <li><span>Screen:</span> 6.78"</li>
+          <li><span>Battery:</span> 5000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="phone-card">
+      <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._SL1500_.jpg" alt="Lava Blaze 5G">
+      <div class="details">
+        <h2>Lava Blaze 5G</h2>
+        <ul>
+          <li><span>Brand:</span> Lava</li>
+          <li><span>OS:</span> Android 12</li>
+          <li><span>RAM:</span> 6 GB</li>
+          <li><span>Storage:</span> 128 GB</li>
+          <li><span>CPU:</span> Dimensity 810</li>
+          <li><span>Screen:</span> 6.5"</li>
+          <li><span>Battery:</span> 5000 mAh</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

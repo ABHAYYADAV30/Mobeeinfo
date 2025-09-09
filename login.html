@@ -1,0 +1,323 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Full-Screen Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #6b48ff, #00ddeb);
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-box {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            transition: 0.5s ease-in-out;
+        }
+
+        .login-box {
+            left: 0;
+        }
+
+        .register-box {
+            right: 0;
+            transform: translateX(100%);
+        }
+
+        .container.active .login-box {
+            transform: translateX(-100%);
+        }
+
+        .container.active .register-box {
+            transform: translateX(0);
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 2.5vw;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #fff;
+            outline: none;
+            color: #fff;
+            font-size: 1.2vw;
+        }
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 12px 0;
+            color: #fff;
+            pointer-events: none;
+            transition: 0.3s;
+            font-size: 1.2vw;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -25px;
+            font-size: 0.9vw;
+            color: #00ddeb;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: #fff;
+            border: none;
+            border-radius: 25px;
+            color: #6b48ff;
+            font-size: 1.2vw;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 20px auto;
+            display: block;
+        }
+
+        button:hover {
+            background: #00ddeb;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .toggle-text {
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1vw;
+            margin-top: 15px;
+        }
+
+        .toggle-text:hover {
+            color: #00ddeb;
+        }
+
+        .background-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 10vw;
+            height: 10vw;
+            top: 10%;
+            left: 15%;
+        }
+
+        .shape:nth-child(2) {
+            width: 15vw;
+            height: 15vw;
+            top: 60%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 8vw;
+            height: 8vw;
+            top: 40%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-2vw);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-box {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .register-box {
+                transform: translateY(100%);
+            }
+
+            .container.active .login-box {
+                transform: translateY(-100%);
+            }
+
+            .container.active .register-box {
+                transform: translateY(0);
+            }
+
+            h2 {
+                font-size: 5vw;
+            }
+
+            input, label {
+                font-size: 3vw;
+            }
+
+            input:focus ~ label,
+            input:valid ~ label {
+                font-size: 2.5vw;
+                top: -20px;
+            }
+
+            button {
+                font-size: 3vw;
+                padding: 12px 25px;
+            }
+
+            .toggle-text {
+                font-size: 2.5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box login-box">
+            <h2>Login</h2>
+            <form action="connect.php" method="post">
+                <div class="input-group">
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit">Login</button>
+                <p class="toggle-text" onclick="toggleForm()">Don't have an account? Register</p>
+            </form>
+        </div>
+        <div class="form-box register-box">
+            <h2>Register</h2>
+            <form>
+                <div class="input-group">
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit">Register</button>
+                <p class="toggle-text" onclick="toggleForm()">Already have an account? Login</p>
+            </form>
+        </div>
+        <div class="background-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            document.querySelector('.container').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

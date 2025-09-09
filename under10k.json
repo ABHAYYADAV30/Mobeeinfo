@@ -1,0 +1,123 @@
+[
+  {
+    "name": "iQOO Z10 Lite",
+    "price": "₹9,999",
+    "image": "https://cdn1.smartprix.com/rx-iFrGB85Jk-w1200-h1200/FrGB85Jk.webp",
+    "display": "6.56\" HD+ LCD, 90Hz refresh rate",
+    "processor": "MediaTek Helio G85",
+    "camera": "13MP + 2MP | 8MP Front",
+    "battery": "5000mAh, 18W Fast Charging",
+    "os": "Funtouch OS 14 (Android 14)",
+    "amazon": "https://www.amazon.in/dp/B0D1H6MK7C",
+    "flipkart": "https://www.flipkart.com/product/p/itmd1bdc8ac7"
+  },
+  {
+    "name": "Redmi A4",
+    "price": "₹6,999",
+    "image": "https://m.media-amazon.com/images/I/51W-k5U7K-L._SL1080_.jpg",
+    "display": "6.7\" HD+ LCD, 90Hz refresh rate",
+    "processor": "MediaTek Helio G36",
+    "camera": "8MP Rear | 5MP Front",
+    "battery": "5000mAh, 10W Charging",
+    "os": "MIUI based on Android 14 Go",
+    "amazon": "https://www.amazon.in/dp/B0CVMGV3RP",
+    "flipkart": "https://www.flipkart.com/product/p/itma4b4f2d7c"
+  },
+  {
+    "name": "Realme Narzo 80 Lite",
+    "price": "₹8,499",
+    "image": "https://m.media-amazon.com/images/I/71FzS4Kkz5L._AC_SL1500_.jpg",
+    "display": "6.56\" LCD, 90Hz",
+    "processor": "Unisoc T612",
+    "camera": "13MP Dual | 5MP Front",
+    "battery": "5000mAh, 10W Charging",
+    "os": "Realme UI T Edition (Android 13)",
+    "amazon": "https://www.amazon.in/dp/B0CXT1X2VK",
+    "flipkart": "https://www.flipkart.com/product/p/itm7a982b02f"
+  },
+  {
+    "name": "Moto G35",
+    "price": "₹9,499",
+    "image": "https://m.media-amazon.com/images/I/71xT94s2QRL._AC_SL1500_.jpg",
+    "display": "6.6\" HD+ IPS LCD, 90Hz",
+    "processor": "Unisoc T606",
+    "camera": "50MP Rear | 8MP Front",
+    "battery": "5000mAh, 18W Charging",
+    "os": "Android 14 (Stock UI)",
+    "amazon": "https://www.amazon.in/dp/B0D2XMPVZZ",
+    "flipkart": "https://www.flipkart.com/product/p/itmca97ea223"
+  },
+  {
+    "name": "Infinix Hot 50",
+    "price": "₹8,799",
+    "image": "https://m.media-amazon.com/images/I/71bJ+KrSLtL._AC_SL1500_.jpg",
+    "display": "6.78\" HD+ IPS Display, 120Hz",
+    "processor": "MediaTek Helio G88",
+    "camera": "50MP Dual | 8MP Front",
+    "battery": "5000mAh, 33W Charging",
+    "os": "XOS 13 (Android 13)",
+    "amazon": "https://www.amazon.in/dp/B0CTKL3SL5",
+    "flipkart": "https://www.flipkart.com/product/p/itm37cc69b"
+  },
+  {
+    "name": "Vivo Y18",
+    "price": "₹8,999",
+    "image": "https://m.media-amazon.com/images/I/61OaiO6U5jL._AC_SL1500_.jpg",
+    "display": "6.56\" HD+ LCD, 90Hz",
+    "processor": "MediaTek Helio G85",
+    "camera": "13MP + 2MP | 5MP Front",
+    "battery": "5000mAh, 18W Charging",
+    "os": "Funtouch OS 14 (Android 14)",
+    "amazon": "https://www.amazon.in/dp/B0D1H7MK7F",
+    "flipkart": "https://www.flipkart.com/product/p/itmf76efg7"
+  },
+  {
+    "name": "Samsung Galaxy F05",
+    "price": "₹7,999",
+    "image": "https://m.media-amazon.com/images/I/71RhU1x85gL._AC_SL1500_.jpg",
+    "display": "6.5\" HD+ PLS LCD, 90Hz",
+    "processor": "MediaTek Helio G70",
+    "camera": "13MP + 2MP | 5MP Front",
+    "battery": "5000mAh, 25W Charging",
+    "os": "One UI Core 6 (Android 14)",
+    "amazon": "https://www.amazon.in/dp/B0CTN3BB2S",
+    "flipkart": "https://www.flipkart.com/product/p/itm7e511c56"
+  },
+  {
+    "name": "Poco M7",
+    "price": "₹9,999",
+    "image": "https://m.media-amazon.com/images/I/71eX1VqIkzL._AC_SL1500_.jpg",
+    "display": "6.74\" HD+ LCD, 90Hz",
+    "processor": "MediaTek Helio G85",
+    "camera": "50MP Dual | 8MP Front",
+    "battery": "5000mAh, 18W Charging",
+    "os": "MIUI 14 based on Android 13",
+    "amazon": "https://www.amazon.in/dp/B0D13PQXXG",
+    "flipkart": "https://www.flipkart.com/product/p/itm27fcdc24"
+  },
+  {
+    "name": "Lava Blaze 5G Lite",
+    "price": "₹9,299",
+    "image": "https://m.media-amazon.com/images/I/61x4TLtX9qL._AC_SL1500_.jpg",
+    "display": "6.5\" HD+ IPS LCD, 90Hz",
+    "processor": "MediaTek Dimensity 6020",
+    "camera": "50MP + AI Sensor | 8MP Front",
+    "battery": "5000mAh, 18W Charging",
+    "os": "Android 13 (Near Stock)",
+    "amazon": "https://www.amazon.in/dp/B0CSP12PH7",
+    "flipkart": "https://www.flipkart.com/product/p/itm67e5b48"
+  },
+  {
+    "name": "Itel S24",
+    "price": "₹7,999",
+    "image": "https://m.media-amazon.com/images/I/71DoDmrrO1L.AC_SL1500.jpg",
+    "display": "6.6\" HD+ IPS LCD, 90Hz",
+    "processor": "MediaTek Helio G91",
+    "camera": "50MP AI Camera | 8MP Front",
+    "battery": "5000mAh, 18W Charging",
+    "os": "Itel OS (Android 13)",
+    "amazon": "https://www.amazon.in/dp/B0CW7W3GHL",
+    "flipkart": "https://www.flipkart.com/product/p/itm9c0b6c93"
+  }
+
+]

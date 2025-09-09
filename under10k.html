@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Phones Under ₹10,000</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background-color: #f5f7fa;
+    }
+    .phone-card {
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      gap: 20px;
+    }
+    .phone-card img {
+      width: 160px;
+      height: auto;
+      border-radius: 10px;
+    }
+    .phone-details {
+      flex: 1;
+    }
+    .phone-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 18px;
+    }
+    .buy-links a {
+      text-decoration: none;
+      margin-right: 10px;
+      padding: 8px 12px;
+      background: #ff9800;
+      color: white;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📱 Best Budget Phones Under ₹10,000</h1>
+  <div id="phone-container"></div>
+
+  <script>
+    async function loadPhones() {
+      const response = await fetch('under10k.json');
+      const phones = await response.json();
+
+      const container = document.getElementById('phone-container');
+      phones.forEach(phone => {
+        const card = document.createElement('div');
+        card.className = 'phone-card';
+        card.innerHTML = `
+          <img src="${phone.image}" alt="${phone.name}">
+          <div class="phone-details">
+            <div class="phone-title">${phone.name}</div>
+            <div class="price">${phone.price}</div>
+            <ul>
+              <li>${phone.display}</li>
+              <li>${phone.processor}</li>
+              <li>${phone.camera}</li>
+              <li>${phone.battery}</li>
+              <li>${phone.os}</li>
+            </ul>
+            <div class="buy-links">
+              <a href="${phone.amazon}" target="_blank">Amazon</a>
+              <a href="${phone.flipkart}" target="_blank">Flipkart</a>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    loadPhones();
+  </script>
+
+</body>
+</html>
