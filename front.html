@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobeeinfo.com</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <header id="main-header">
+    <div class="logo" onclick="window.location.href='index.html'">Mobeeinfo</div>
+
+    <div class="search-container" style="cursor:pointer;">
+     <form action="testpage.html" method="get">
+  <input type="text" id="searchInput" name="q" placeholder="Search phones..." autocomplete="off">
+  <button type="submit">Search</button>
+</form>
+
+    </div>
+    <style>
+      .search-results {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #ddd;
+      max-height: 300px;
+      overflow-y: auto;
+      width: 300px;
+      z-index: 1000;
+      display: none;
+      }
+      .search-result-item {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      }
+      .search-result-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 4px;
+      }
+      .search-result-item:last-child {
+      border-bottom: none;
+      }
+      .search-result-item:hover {
+      background: #f5f5f5;
+      }
+    </style>
+    <nav>
+      <button onclick="navigateTo('front.html')">Home</button>
+      <a href="compare.html"><button>Compare</button></a>
+       <a href="login.html"><button>Login</button></a>
+
+      <div class="dropdown">
+        <button id="dropdownToggle">More ▼</button>
+        <div class="dropdown-content" id="dropdownMenu" style="display: none;">
+          <button onclick="navigateTo('account.html')">My Account</button>
+          <a href="about.html"><button type="button">About us</button></a>
+          <button onclick="navigateTo('support.html')"> Help and Support</button>
+          <button onclick="navigateTo('settings.html')">Settings</button>
+          <button onclick="navigateTo('logout.html')">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+ <div class="sidebar" style="max-height: 100%; overflow-y: auto;">
+  <h2>All Categories</h2>
+  <ul>
+    <li>
+      Electronics
+      <ul class="submenu">
+        <a href="mobile.html"><li>&bull; Mobiles</li></a>
+          <p><li>&bull;Laptops <span class="twinkle">Coming Soon</span></li></p>
+        </li>
+        <li>&bull; Tablets <span class="twinkle">Coming Soon</span></li>
+      </ul>
+    </li>
+    <li>
+    Brands
+      <ul class="submenu">
+        <a href="applemodels.html"><li>&bull; Apple</li></a>
+        <a href="samsmodel.html"><li>&bull; Samsung</li></a>
+        <a href="googlemodel.html"><li>&bull; Google</li></a>
+       <a href="vivomodels.html"><li>&bull; Vivo</li></a>
+       <li>&bull; Motorola</li>
+       <li>&bull; Realme</li>
+        <li>&bull;Oppo</li>
+        <li>&bull;Redmi</li>
+      </ul>
+    </li>
+    <li>
+      Filter By
+      <ul class="submenu">
+        <a href ="gaming.html"><li>&bull;Gaming Phones</li></a>
+        <a href="bestcamra.html"><li>&bull;Best Camera Phones</li></a>
+        <li>&bull;Under 10,000rs</li>
+        <a href="below2ty.html"><li>&bull; Under 20,000rs</li></a>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+  <main>
+    <h1>Welcome to Mobeeinfo</h1>
+    <p>Find the best deals on your favorite mobile phones. Use the search to quickly find what you want.</p>
+
+  <div class="slider-container">
+   <div class="slider" id="productSlider">
+    <!-- Product cards -->
+    <div class="product-card">
+      <a href="vivomodels.html" target="_blank">
+      <img src="image/vivo-logo.jpg" alt="Vivo Logo">
+      </a>
+    </div>
+    
+    <div class="product-card">
+      <a href="samsmodel.html" target="_blank">
+      <img src="image/samsung icon.webp"></a>
+    </div>
+    <div class="product-card">
+      <a href="applemodels.html" target="_blank">
+      <img src="image/black-apple-icon.png" alt="Apple Logo">
+      </a>
+    </div>
+      
+    <div class="product-card">
+       <a href="googlemodel.html" target="_blank">
+      <img src="image/google_logo.png"></a>
+    </div>
+    <div class="product-card">
+      <img src="image/motorola-logo-brands-motorola.jpg">
+    </div>
+    <div class="product-card">
+      <img src="image/realme.webp">
+    </div>
+    <div class="product-card">
+      <img src="image/oppo.webp">
+    </div>
+    <div class="product-card">
+      <img src="image/Redmi_1-Logo.wine.png">
+    </div>
+  </div>
+</div>
+<div class="hot-deals-container"> <div class="hot-deals-box" id="hotDealsSlider">
+ <div class="deal-card">
+<img src="image/hot deal.jpg" alt="Hot Deal 1">
+</div>
+<div class="deal-card">
+<img src="https://tse3.mm.bing.net/th/id/OIP.RXlXki-0qBeLDUrjWkIzQAHaDt?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hot Deal 2">
+</div>
+<div class="deal-card">
+<img src="https://th.bing.com/th/id/OIP.tQDV764uCuYm87yiMKlZ6QHaDt?w=342&h=174&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Hot Deal 3">
+</div>
+<div class="deal-card">
+<img src="https://tse2.mm.bing.net/th/id/OIP.55d-7G22lpNT-bKiFEb_jwHaD_?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hot Deal 4">
+</div>
+ <!-- You can duplicate or add more deal-cards as needed -->
+</div>
+</div>
+
+  </main>
+   <div class="l-container">
+  <h2 class="mb-4">Top Phones</h2>
+  <div class="row">
+    <div class="product2">
+      <img src="image/15pro.webp" alt="iPhone 15 Pro Max">
+      <h3>iPhone 15 Pro Max</h3>
+      <p>Latest Apple flagship with advanced features.</p>
+    </div>
+
+    <div class="product3">
+       <a href="vivov50.html">
+          <img src="image/vivo v50.png" alt="vivo v50">
+        </a>
+      <h3>vivo v50</h3>
+      <p>Latest vivo v50 with advanced features.</p>
+    </div>
+
+    <div class="product4">
+      <img src="image/Samsung-Galaxy-S24.webp" alt="Samsung Galaxy S24">
+      <h3>Samsung Galaxy S24</h3>
+      <p>Powerful performance and stunning display.</p>
+    </div>
+
+    <div class="product5">
+      <img src="image/onepluse12.png" alt="OnePlus 12">
+      <h3>OnePlus 12</h3>
+      <p>Fast charging and smooth user experience.</p>
+    </div>
+  </div>
+   <h2 class="mb-4">Newly lunch</h2>
+  <div class="row">
+    <div class="product2">
+      <a href="iphone15pro.html">
+      <img src="image/15pro.webp" alt="iPhone 15 Pro Max">
+      <h3>iPhone 15 Pro</h3></a>
+      <p>Latest Apple flagship with advanced features.</p>
+    </div>
+
+    <div class="product3">
+       <a href="vivov50.html">
+          <img src="image/vivo v50.png" alt="vivo v50">
+        </a>
+      <h3>vivo v50</h3>
+      <p>Latest vivo v50 with advanced features.</p>
+    </div>
+
+    <div class="product4">
+      <img src="image/Samsung-Galaxy-S24.webp" alt="Samsung Galaxy S24">
+      <h3>Samsung Galaxy S24</h3>
+      <p>Powerful performance and stunning display.</p>
+    </div>
+
+    <div class="product5">
+      <img src="image/onepluse12.png" alt="OnePlus 12">
+      <h3>OnePlus 12</h3>
+      <p>Fast charging and smooth user experience.</p>
+    </div>
+  </div>
+
+
+   <h2 class="mb-4">Upcoming Smart Phones</h2>
+  <div class="row">
+    <div class="product2">
+      <img src="https://www.mobiledokan.com/media/apple-iphone-17-air-blue-official-image.webp" alt="iPhone 15 Pro Max">
+      <h3>I phone 17 air</h3>
+      <p>6.7 inches full Hd+Amoled screen and come with iP68+69 water rating</p>
+    </div>
+
+    <div class="product3">
+       <a href=".html">
+          <img src="https://opsg-img-cdn-gl.heytapimg.com/epb/202504/08/NTwP3KOoNDWnC7ie.png" alt="vivo v50">
+        </a>
+      <h3>Oppo K13</h3>
+      <p>6.80-inch 1.5K (1,280x2,800p) AMOLED screen with up to 120Hz refresh rate.</p>
+    </div>
+
+    <div class="product4">
+      <img src="https://www.bigcmobiles.com/media/catalog/product/cache/e19e56cdd4cf1b4ec073d4305f5db95a/v/i/vivo_v60_5g_gray_4_3.png" alt="Samsung Galaxy S24">
+      <h3>Vivo V60</h3>
+      <p>Powerful performance and stunning display.</p>
+    </div>
+
+    <div class="product5">
+      <img src="https://gadgetsnap.in/wp-content/uploads/2025/08/Xiaomi-Redmi-15.webp" alt="OnePlus 12">
+      <h3>Redmi 15</h3>
+      <p></p>
+    </div>
+  </div>
+  <!-- 📱 Latest Leaks & Launches Section -->
+<section class="news-section">
+  <h2>Upcoming & Launches</h2>
+  <p class="subtitle">Stay updated with the latest smartphone upcoming & launches</p>
+
+  <div class="news-container">
+    <!-- News Card 1 -->
+    <div class="news-card">
+      <span class="tag launch">Launch</span>
+      <img src="image/zfold6sam.webp" alt="Samsung Galaxy Z Fold 6">
+      <div class="news-content">
+        <h3>Samsung Galaxy Z Fold 6 Officially Launched</h3>
+        <p>Samsung unveiled the Galaxy Z Fold 6 in August 2025 with a slimmer hinge, Snapdragon 8 Gen 4, and enhanced multitasking features.</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
+    <!-- News Card 4 -->
+    <div class="news-card">
+      <span class="tag upcoming">Upcoming</span>
+      <img src="image/17series.jpg" alt="iPhone 17">
+      <div class="news-content">
+        <h3>iPhone 17 Series Coming in September 2025</h3>
+        <p>Early reports suggest Apple is preparing the iPhone 17 series with a bezel-less design and next-gen AI features.</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CSS Styling -->
+<style>
+.news-section {
+  padding: 40px;
+  background: #f8f9fc;
+  border-radius: 12px;
+  text-align: center;
+}
+.news-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+}
+.news-section .subtitle {
+  color: #555;
+  margin-bottom: 20px;
+}
+.view-btn {
+  background: #1a73e8;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+.view-btn:hover {
+  background: #0d5acb;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.news-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  position: relative;
+}
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+.news-card img {
+  width: 90%;
+  height: 320px;
+  object-fit: cover;
+}
+.news-content {
+  padding: 16px;
+  text-align: left;
+}
+.news-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+}
+.news-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+.news-content a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a73e8;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.news-content a:hover {
+  text-decoration: underline;
+}
+
+.tag {
+  position: absolute;
+  margin: 10px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  color: #fff;
+}
+.launch { background: #1a73e8; }
+.upcoming { background: #34c759; }
+</style>
+<script src='https://cdn.jotfor.ms/agent/embedjs/0198cc2e6926726a97ddf0e3880b55053a4e/embed.js?skipWelcome=1&maximizable=1'></script>
+  <footer>
+   <!---- <img src="logo.png" alt="MobeeInfo Logo" style="width: 80px; height: auto; margin-bottom: 10px;" />-->
+  <p>Welcome to MobeeInfo, your one-stop destination for the latest mobile
+    <h3>MobeeInfo</h3>
+    <p>© 2025 MobeeInfo. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+      <a href="https://facebook.com/yourhandle" target="_blank">Facebook</a>
+      <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+      <a href="https://youtube.com/yourhandle" target="_blank">YouTube</a>
+    </div>
+  </footer>
+</div>
+  <script src="js/script.js"></script>
+  <script src="js/search12.js"></script>
+  <script src="js/server.js"></script>
+  
+  <script>
+    // Dropdown toggle logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.getElementById('dropdownToggle');
+      var dropdownMenu = document.getElementById('dropdownMenu');
+      toggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      });
+      // Optional: Hide dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!toggleBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
